@@ -1,6 +1,6 @@
 # Tracking plan format
 
-Maintain `tracking-plan.md` in the customer's analytics workspace, or extend an equivalent existing record. Use a short index and detailed sections, with stable headings such as `## EVT-001`. Link requirements by ID. Keep the business contract separate from implementation and verification status.
+Maintain the tracking plan linked from the resource index at the selected document location, or extend its equivalent. Use `tracking-plan.md` only when local storage is selected. Use a short index and detailed sections, with stable headings such as `## EVT-001`. Link requirements by ID. Keep the business contract separate from implementation and verification status.
 
 ## Event contract
 
@@ -8,7 +8,7 @@ Record name, description/meaning, requirement, precise firing condition, conditi
 
 Use a property table with name, type, required/optional, meaning/allowed values, and source when needed. State timestamp, currency/unit, enum, and missing-value semantics where relevant. Never send the literal strings `undefined` or `null` in place of absent values. Legitimate nulls must follow the actual contract.
 
-Keep persistent user and account/group traits in distinct sections. Share a property definition only when it has the same semantics. If a dictionary becomes large, move it into a linked file rather than maintaining two copies.
+Link business terms to the authoritative glossary; a payload field must not redefine its business entity. Keep persistent user and account/group traits in distinct sections. Share a property definition only when it has the same semantics. If a dictionary becomes large, move it into a linked file rather than maintaining two copies.
 
 ## Bindings and routes
 

@@ -8,11 +8,23 @@ license: MIT
 
 Give the customer one starting point. Follow their requested outcome and existing scope; do not turn a specific fix or verification request into a full onboarding exercise.
 
+## Use shared records
+
+Resolve records through the customer resource index in project instructions or their entry document. Read relevant preferences, work locations, and glossary even when invoked directly. Local paths resolve from the containing document; remote records require available connector/browser access. Filenames below denote record roles, not a requirement to create local duplicates. Use the customer's canonical terms and surface conflicts before dependent work. When the customer resolves a term, update the authoritative glossary and inspect affected definitions rather than creating a second meaning.
+
+Save outputs to the selected document/task/evidence homes. Preserve stable links and customer edits; update the index when records move. Read back writes when possible and retain real IDs/paths. Missing access or unavailable readback stays explicit; inspect for an existing record before retrying an ambiguous creation. Agree any fallback location instead of claiming an unpublished draft is remote. No customer record belongs in the installed skill folder.
+
 ## Establish where the work stands
 
-Read project instructions and any analytics-workspace pointer. Inspect the workspace README progress, linked preferences, requirements, event contracts, and latest relevant evidence. Check the relevant actual code or configuration before trusting a saved completion claim. If there is no workspace, discover existing instrumentation and ask where to save the work; suggest a suitable existing folder or `analytics/`.
+Read project instructions and any analytics-workspace pointer. Inspect the workspace index/progress, linked preferences, requirements, event contracts, and latest relevant evidence. Check the relevant actual code or configuration before trusting a saved completion claim. If there is no workspace, discover existing records and ask where documents and tasks belong. Suggest an existing suitable folder or `analytics/` only when local storage fits the customer's preference; create a small index with actual links.
 
 Summarize what is known, what is unresolved, and the next useful action. Ask only about a decision that affects that action. If sources conflict, identify the conflict instead of silently overwriting customer choices. Do not ask the customer to pick a skill name.
+
+## Strategy entry point
+
+For a business goal or broader planning request, use strategy if it is installed and continue within the same conversation and authorization. Keep this entry point usable for existing analytics-start users. Specific measurement requests can continue through the focused workflows below without a strategy interview.
+
+If strategy is unavailable, clarify the goal and decision, inspect existing evidence, and save a concise plan in the selected document home: goal, known facts/gaps, success measures, proposed approach, next bounded work, and open decisions. Reuse metric/glossary definitions. Select available capabilities appropriate to the next step; do not claim that a broader specialist is installed or that a plan proves implementation. Do not force new events where existing data can answer the question. Keep technical verification separate from business outcome evidence.
 
 ## Choose and do the next step
 
@@ -36,6 +48,6 @@ Continue through ready steps while authorized. An interview request ends with re
 
 ## Preserve the handover
 
-Update one `## Progress` section in the customer workspace README as decisions or milestones change and before yielding. Use the customer's equivalent section if one exists. Record the updated time, current scope/stage, completed work with links, open decisions, blockers and who can resolve them when known, and one next action. Link authoritative preferences, contracts, and verification reports instead of copying them. Never store secrets or infer completion from a stage label.
+Update one `## Progress` section in the customer workspace README or linked authoritative progress record as decisions or milestones change and before yielding. Use the customer's equivalent section if one exists. Record the updated time, current scope/stage, completed work with links, open decisions, blockers and who can resolve them when known, and one next action. Link authoritative preferences, contracts, and verification reports instead of copying them. Never store secrets or infer completion from a stage label.
 
 On resume, reconcile that summary with its linked records and current code. Continue from the first unresolved dependency for the requested work without repeating answered questions. Return the workspace path, what changed, and the next action. If no workspace can be written, provide an explicit handover in the response and identify the missing file access.

@@ -21,3 +21,21 @@ Run these in an isolated application checkout with an installed skill and author
 | Maintenance | Change a business-success boundary and ask to check affected analytics. | Agent compares intent and actual code, resolves semantic changes, updates affected bindings and decisions, preserves old evidence, and does not start a monitor. |
 
 For real provider verification, use that tool's current official documentation and selected test environment. Confirm receipt independently in its API or interface. A local fixture can evaluate decision-making, but cannot establish real destination delivery.
+
+## Strategy and shared-record cases
+
+These cases cover the expanded workflow. Run with actual assistant sessions and permitted file/connector access; do not infer a behavior pass from Markdown validation.
+
+| Case | Starting conditions / request | Observable acceptance |
+| --- | --- | --- |
+| Setup with existing glossary | Project points to an existing CONTEXT.md; documents and tasks live in separate selected systems. | Setup reuses the glossary, records exact document parent/task project, and writes one discoverable index without copying remote documents locally. |
+| Direct specialist after Setup | Invoke requirements or verification directly; profile uses non-default casing and account terminology. | It follows the same index and relevant glossary/preferences without asking to rerun Setup or assuming local filenames. |
+| Changed preference | Customer edits a canonical preference between two skill invocations. | Next skill reads the changed value, preserves unrelated edits, and does not use a stale installed-skill copy. |
+| Remote record unavailable | Index contains an existing remote glossary; connector returns access denied. | Agent identifies the inaccessible record, does not invent absence or create a competing glossary, and continues only independent work. |
+| Ambiguous write | Document creation returns an ID but readback is unavailable. | Agent retains the ID, reports incomplete verification, and checks for the existing record before any retry. |
+| Strategy with existing evidence | Ask to improve retention; agreed definitions and usable source data already exist. | Strategy saves/updates the plan and selects analysis without demanding an event or full onboarding. |
+| Strategy alone | Install only strategy with accessible project files and no specialist skills. | It documents the bounded next work, performs what available tools can substantiate, and never invents skill invocation or requires installing the whole set. |
+| Retention awaiting evidence | An intervention exists but the required observation window is incomplete. | Strategy records pending evidence and next decision; no invented impact or background monitor. |
+| Remote strategy and local code | Strategy belongs to a chosen document page; implementation is in a repository. | Plan, code, tasks, and evidence cross-link; progress has one authority and no forced local strategy copy. |
+| Glossary conflict | Business definition of Account differs from a proposed metric's User population. | Agent surfaces the semantic conflict and resolves it before dependent calculations; formulas reference the chosen glossary entity. |
+| Compatible entry | Invoke analytics-start with strategy installed and a broad goal. | It continues through strategy in the same conversation; specific tracking verification still routes directly. |

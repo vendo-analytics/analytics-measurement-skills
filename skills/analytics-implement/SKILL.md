@@ -8,6 +8,12 @@ license: MIT
 
 Read the project's analytics-workspace pointer, preferences, tools, requirements, and tracking plan. Reuse equivalent existing documents. If missing, collect only the requirements and decisions needed for the requested change and record them before editing. Do not require another installed skill to proceed.
 
+## Use shared records
+
+Resolve records through the customer resource index in project instructions or their entry document. Read relevant preferences, work locations, and glossary even when invoked directly. Local paths resolve from the containing document; remote records require available connector/browser access. Filenames below denote record roles, not a requirement to create local duplicates. Use the customer's canonical terms and surface conflicts before dependent work. When the customer resolves a term, update the authoritative glossary and inspect affected definitions rather than creating a second meaning.
+
+Save outputs to the selected document/task/evidence homes. Preserve stable links and customer edits; update the index when records move. Read back writes when possible and retain real IDs/paths. Missing access or unavailable readback stays explicit; inspect for an existing record before retrying an ambiguous creation. Agree any fallback location instead of claiming an unpublished draft is remote. No customer record belongs in the installed skill folder.
+
 ## Trace ownership
 
 Find the module that owns the real business action and the existing analytics path. Read actual callers, initialization, identity/consent handling, automatic capture, tag/container routes, and destination mappings. A similarly named file is not proof of ownership. Inspect other relevant codebases when a shared event crosses client/server or mobile/web boundaries.
@@ -42,4 +48,4 @@ Then verify each selected final destination through a read API or its interface,
 
 Update real code references and implementation states in the tracking plan. Mark the contract Agreed only from customer agreement, a binding Implemented only after it exists, and receipt verified only from evidence. Report what changed, focused checks, per-destination results, and remaining prerequisites.
 
-Update one `## Progress` section in the workspace README after meaningful progress and before yielding: time, scope/stage, completed work with links, open decisions, blockers with concrete next actions, and one recommended next step. Link the actual code/contract/evidence; do not mark the first milestone verified while its agreed cases remain unproven. On resume, reconcile the summary with current records and code rather than redoing completed work.
+Update one `## Progress` section in the workspace README or linked authoritative progress record after meaningful progress and before yielding: time, scope/stage, completed work with links, open decisions, blockers with concrete next actions, and one recommended next step. Link the actual code/contract/evidence; do not mark the first milestone verified while its agreed cases remain unproven. On resume, reconcile the summary with current records and code rather than redoing completed work.

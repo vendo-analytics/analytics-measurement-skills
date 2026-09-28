@@ -1,12 +1,12 @@
-# Analytics and Measurement Skills
+# Strategy and Measurement Skills
 
-Give your coding agent a measurement workflow: understand the business question, document the tracking plan, implement events, verify destination receipt, and keep it current as your application changes.
+Give your agent one starting point for a business goal: understand the context, save a strategy, and choose the next useful work. Shared project records carry preferences, vocabulary, plans, and evidence between skills and assistants.
 
-Six portable skills: one starting point and five focused workflows for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
+Seven portable skills: Strategy, the compatible analytics-start entry, and five focused measurement workflows for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
 
 ## Choose your assistant
 
-Open the **application you want to measure**, then install the skills there. Terminal commands below require Node.js/npm, which supplies `npx`. The skills themselves are Markdown; they do not require a Node.js application.
+Open the **project you want to work on**, then install the skills there. Terminal commands below require Node.js/npm, which supplies `npx`. The skills themselves are Markdown; they do not require a Node.js application.
 
 - [Codex](#codex)
 - [Claude Code](#claude-code)
@@ -20,6 +20,8 @@ Using both Codex and Claude Code? Install for both in one command:
 npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a codex -a claude-code
 ```
 
+For an unmerged review branch, run `npx skills add /path/to/skills-checkout --skill '*' -a codex -a claude-code` from your application project, pointing to a checkout of that branch. Repository-based commands below use the default branch.
+
 ### Codex
 
 Run in your application's repository:
@@ -31,7 +33,7 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a codex
 Open that project in Codex and send:
 
 ```text
-$analytics-start Help me with measurement for this application.
+$strategy Help me improve onboarding for this application.
 ```
 
 Project skills are stored in `.agents/skills/`. If a skill is missing, start a new session in that project and check the installed files. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills) and [project customization](https://learn.chatgpt.com/docs/customization/overview#skills).
@@ -47,7 +49,7 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a claud
 Open Claude Code in the same project and send:
 
 ```text
-/analytics-start Help me with measurement for this application.
+/strategy Help me improve onboarding for this application.
 ```
 
 Claude Code reads `.claude/skills/`. The installer may link those folders to shared copies in `.agents/skills/`; keep the targets with your project. See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills).
@@ -56,14 +58,15 @@ Claude Code reads `.claude/skills/`. The installer may link those folders to sha
 
 Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
 
-1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all six for the full workflow, or start with `analytics-start` alone.
+1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all seven for the full set, or start with `strategy` alone. Existing `analytics-start` installations remain supported.
 2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
-3. Ask: “Use analytics-start to help me with measurement for this application.” Give the session access to the relevant project files.
+3. Ask: “Use strategy to help me understand and improve this application.” Give the session access to the relevant project files.
 
 | Download | Purpose |
 | --- | --- |
-| [analytics-start.zip](downloads/analytics-start.zip) | Choose the next step or resume |
-| [analytics-setup.zip](downloads/analytics-setup.zip) | Tools and preferences |
+| [strategy.zip](downloads/strategy.zip) | Save a strategy and perform the next relevant work |
+| [analytics-start.zip](downloads/analytics-start.zip) | Compatible measurement entry point |
+| [analytics-setup.zip](downloads/analytics-setup.zip) | Shared profile, glossary links, document/task homes, and tools |
 | [analytics-requirements.zip](downloads/analytics-requirements.zip) | Outcomes and event definitions |
 | [analytics-implement.zip](downloads/analytics-implement.zip) | Instrument the application |
 | [analytics-verify.zip](downloads/analytics-verify.zip) | Verify destination receipt |
@@ -71,7 +74,7 @@ Local Claude Code installation does not install skills into your Claude account.
 
 These archives are generated from the skill source in this revision. Do not upload the whole repository as one skill. If downloading the repository instead, the same ZIPs are in `downloads/`.
 
-Available repository, browser, and device access depends on the session. With uploaded documents only, start with setup and requirements; implementing and verifying an application requires access to its actual code and test environment. Account-synced skills and local project files have different loading rules; see [Cowork and cloud-session guidance](https://code.claude.com/docs/en/skills#use-skills-in-cowork-and-cloud-sessions).
+Available repository, browser, and device access depends on the session. With uploaded documents only, start with Strategy, setup, or requirements; implementing and verifying an application requires access to its actual code and test environment. Account-synced skills and local project files have different loading rules; see [Cowork and cloud-session guidance](https://code.claude.com/docs/en/skills#use-skills-in-cowork-and-cloud-sessions).
 
 ### Other coding assistants
 
@@ -91,8 +94,8 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a gemin
 Open the same project in your assistant's agent mode and ask:
 
 ```text
-Use analytics-start to help me with measurement for this application.
-Read the existing analytics workspace first, if there is one.
+Use strategy to help me understand and improve this application.
+Read the existing resource index and linked records first, if there is one.
 ```
 
 Use the host's skill picker or discovery controls if it does not load the skill. Gemini CLI provides `/skills list` and `/skills reload`. See the current instructions for [Cursor](https://cursor.com/docs/skills), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills), and [Gemini CLI](https://geminicli.com/docs/cli/skills/).
@@ -110,9 +113,9 @@ Download and extract this repository. Copy each **complete skill folder**, inclu
 If your assistant can read files but has no skill-discovery feature, give it the path to the extracted skill and ask:
 
 ```text
-Read analytics-measurement-skills/skills/analytics-start/SKILL.md.
-Use it to choose and continue the next measurement step.
-Save decisions and progress in the application workspace.
+Read analytics-measurement-skills/skills/strategy/SKILL.md.
+Read our shared resource index, then continue the next useful work for our goal.
+Save the strategy and outputs in our chosen document and task locations.
 ```
 
 Replace the example path with the actual location. For a chat-only assistant, supply the skill and relevant reference files along with your project context. It can help with planning; file edits and receipt checks need suitable connected tools. Automatic discovery and command syntax are host-specific.
@@ -120,32 +123,33 @@ Replace the example path with the actual location. For a chat-only assistant, su
 ### Check, update, or troubleshoot installation
 
 - Installation is project-local by default. Add `--global` for personal use across projects; this does not sync files to hosted or cloud sessions.
-- Use `--skill analytics-start` for just the entry point, or select any focused skill by name. The entry point uses installed workflows when available and can perform a bounded next step on its own.
+- Use `--skill strategy` for the strategy entry point, or select any focused skill by name. `analytics-start` remains available for existing measurement workflows. The entry point uses installed workflows when available and can perform a bounded next step on its own.
 - If symlinks are unavailable, add `--copy` to the install command.
 - Run `npx skills list` to inspect installed skills. This checks installation, not whether the current assistant session loaded them.
-- To update, rerun your original install command and review any replacement prompt. Customer preferences live in your separate analytics workspace and should never be stored in the installed skill folder.
+- To update, rerun your original install command and review any replacement prompt. Customer preferences live in your selected project records and should never be stored in the installed skill folder.
 - If a command is missing, check the project and installation scope, then reload skills or start a new session. If a reference is missing, reinstall the complete skill folder.
 - If a browser, account, or native device is unavailable, continue the work that is possible and retain an explicit verification blocker.
 
-Installer checks cover Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CLI. Full agent workflows and account-upload flows still need evaluation. Installation alone does not establish live destination success.
+Installer checks cover Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CLI. The expanded Strategy/shared-record workflow and account-upload flows still need real-user evaluation. Installation alone does not establish live destination success.
 
-## Your first measurement journey
+## Start with a useful outcome
 
-Start with `analytics-start`; it reads what already exists and continues the relevant workflow. For new work without a defined scope, agree **one business question and one useful event** first. Expand after the agreed cases and all selected destinations are verified; broader requests keep their full scope:
+Ask Strategy what you want to understand or improve. It reads existing records, documents the goal and approach, and performs the next relevant work. It asks at most three unresolved questions at a time and does not require new tracking if existing data is sufficient.
 
-1. **Setup:** discover existing tracking, choose where analytics work lives, and save your tools and preferences. You can answer “not sure” and leave a decision open.
-2. **Requirements:** explain what you want to understand and the decision it should support. Refine the event's meaning before writing code.
-3. **Implementation and verification:** implement the agreed event, exercise the actual journey, and check each selected destination. An unavailable account becomes a specific next action.
-4. **Maintenance:** when a feature or tool changes, ask the agent to review the affected measurement.
+1. **Setup when needed:** establish project facts, preferred document/task locations, existing glossary, tools, and access. Other skills reuse these records.
+2. **Strategy:** save the goal, evidence, success measures, chosen or proposed approach, work plan, and next decision.
+3. **Do the needed work:** use the included measurement workflows or another suitable available capability. Strategy does not pretend uninstalled specialist skills are present.
+4. **Verify and learn:** check implementation separately from business impact. If evaluation needs future observations, save that requirement and resume when asked.
 
-If you already have tracking, start with a scoped verification or maintenance request. You do not need to restart onboarding or invoke every skill.
+For instrumentation without a defined scope, the measurement workflows can agree one business question and one useful event, then verify its selected routes and cases. A specific repair or verification request proceeds directly without a strategy workshop. Broader requests retain their scope.
 
 The available workflows:
 
 | Skill | What it does | Example request |
 | --- | --- | --- |
+| [strategy](skills/strategy/SKILL.md) | Documents the strategy and selects/continues relevant work | “Help us improve retention.” |
 | [analytics-start](skills/analytics-start/SKILL.md) | Reads project progress and continues the next relevant workflow | “Help me with analytics.” |
-| [analytics-setup](skills/analytics-setup/SKILL.md) | Surveys your tools, environments, routing, naming, and setup details; saves preferences | “Add our new CRM to the existing analytics setup.” |
+| [analytics-setup](skills/analytics-setup/SKILL.md) | Records shared project context, glossary links, document/task destinations, tools, and preferences | “Add our new CRM to the existing analytics setup.” |
 | [analytics-requirements](skills/analytics-requirements/SKILL.md) | Starts with outcomes, then refines requirements three questions at a time | “Help us understand why trial accounts fail to activate.” |
 | [analytics-implement](skills/analytics-implement/SKILL.md) | Reuses real application triggers and routes events through your chosen tools | “Implement the agreed activation tracking.” |
 | [analytics-verify](skills/analytics-verify/SKILL.md) | Exercises the real journey and checks receipt in each final destination | “Verify signup tracking and save the evidence.” |
@@ -156,30 +160,45 @@ The available workflows:
 Open the same application and analytics workspace in the next assistant, with the needed skill installed. Ask:
 
 ```text
-Use analytics-start. Read our analytics workspace and summarize agreed decisions, completed work,
-and unresolved questions. Continue the next measurement step without
+Use strategy. Read our shared resource index and summarize agreed decisions, completed work,
+and unresolved questions. Continue the next useful step without
 repeating answered setup questions. Ask about conflicting information.
 ```
 
-Use the workspace path saved in your project's agent instructions. The files carry the handover; a new assistant does not need the previous chat history. Keep one editable workspace across assistants and reconcile concurrent edits before continuing. Each workflow maintains a short `Progress` section in its README: scope, completed work, open decisions, specific blockers, and one next action. It links to the actual records and evidence; the next session checks those against current code.
+Use the resource index saved in your project's agent instructions or supplied entry document. Each skill follows its links to relevant authoritative records, including when invoked directly. Another assistant needs access to those records; links do not grant permissions. Reconcile concurrent edits and check current evidence on resume.
 
-## Your measurement workspace
+## Shared project records
 
-Setup asks where to store your analytics work and records a pointer in your project's agent instructions. The same customer-owned Markdown files guide every installed skill and agent. Preferences stay with the application; rerunning setup merges changes without rewriting installed skills.
+Setup discovers existing records and asks only about missing choices. Documents can live in your selected document system, tasks in your tracker, and code/evidence in appropriate repositories or folders. Record the exact document parent and task project, not just their tool names.
 
-Files grow as work happens:
+```text
+Project instructions or entry document
+  → Shared resource index
+      → Profile/preferences and work locations
+      → Tools, routes, and access references
+      → Existing glossary / CONTEXT.md
+      → Strategy and authoritative progress
+      → Requirements, metrics, and tracking dictionaries
+      → Tasks, decisions, and verification evidence
+```
 
-| Artifact | Content |
-| --- | --- |
-| `README.md` | Workspace navigation, scope, ownership, and resumable progress |
-| `preferences.md` | Platforms, environments, event/property casing, identity and data rules |
-| `tools.md` | Selected tools, account references, capabilities, credentials references, and delivery routes |
-| `requirements.md` | Business questions, definitions, potential measurements, and acceptance criteria |
-| `tracking-plan.md` | Event contracts, properties, real code bindings, destination mappings, and cases |
-| `decisions.md` | Material decisions, reasons, and affected records |
-| `verification/<run>/report.md` | Per-case results and links to sanitized API evidence or screenshots |
+One business term has one authoritative meaning. Metrics link to that glossary while owning formulas; event/property definitions own payload and trigger semantics. Skills surface conflicts instead of inventing new definitions.
 
-These are working records, created when there is content to record. Existing equivalent documents can be reused. Private tokens belong in your secret store or ignored environment configuration, with references in the workspace.
+| Record | Content | Local default, when selected |
+| --- | --- | --- |
+| Index | Canonical links and one progress summary | README.md |
+| Profile | Business/project context, conventions, document/task locations | preferences.md |
+| Tools | Accounts, capabilities, secure references, routes | tools.md |
+| Glossary | Resolved business terms and relationships | Existing CONTEXT.md or glossary.md |
+| Strategy | Goal, evidence, approach, work plan, task/result links | strategy.md |
+| Requirements/metrics | Definitions, evidence needs, acceptance criteria | requirements.md |
+| Tracking plan | Events, properties, bindings, mappings, cases | tracking-plan.md |
+| Decisions | Choices, reasons, superseded meanings | decisions.md |
+| Verification | Per-case results and sanitized evidence | verification/<run>/report.md |
+
+Create records when they have real content, reuse existing equivalents, and keep customer configuration outside installed skill folders. Each skill saves to the selected home and checks the write when possible. Missing access or readback stays explicit; an unpublished local draft is not presented as a remote document. Private tokens stay in your secret store or ignored configuration.
+
+See the [Setup output format](skills/analytics-setup/references/workspace-format.md) and [Strategy output format](skills/strategy/references/strategy-format.md). Both are instructions for producing your records, not prefilled customer files.
 
 ## How implementation works
 
@@ -191,7 +210,7 @@ The skills discover current official documentation for your selected tools and i
 
 ## Verification and agent capabilities
 
-Your agent needs code/file access for planning and implementation. Browser, API, and native-device access depend on the host and your connected tools. Setup offers browser-assisted account discovery when available; login and MFA remain yours.
+Available work depends on document, data, code, and tool access; application implementation requires the actual codebase. Browser, API, and native-device access depend on the host and your connected tools. Setup offers browser-assisted account discovery when available; login and MFA remain yours.
 
 Verification checks the real application journey and each selected final destination. A fired tag, SDK call, or successful HTTP request alone does not prove receipt. Reports distinguish **Pass**, **Fail**, **Blocked**, and **Not run**. Native tracking requires device, simulator, emulator, or attributable user-assisted evidence. Missing access is recorded explicitly.
 
