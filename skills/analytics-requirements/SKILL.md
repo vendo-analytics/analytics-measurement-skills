@@ -1,0 +1,33 @@
+---
+name: analytics-requirements
+description: Interview a customer about measurement outcomes and refine them into documented analytics requirements. Use before choosing events, planning instrumentation, or expanding an existing measurement plan.
+license: MIT
+---
+
+# Refine measurement requirements
+
+Follow the project's analytics-workspace pointer and read its preferences, tools, existing requirements, and relevant application behavior. If no workspace exists, ask where to save the work and capture the minimum needed context there; the setup skill is useful if installed, but is not a dependency.
+
+## Start with intent
+
+Ask one open question first: “What do you want to understand or improve, and what decision would you make from the answer?” Let the customer describe the outcome before suggesting events or tools. If they have already explained it, reflect it back and proceed rather than repeating the opening.
+
+## Refine three questions at a time
+
+Ask three focused questions per round, wait for the answers, then choose the next three from the remaining uncertainty. If fewer questions remain, ask only those. Do not dump the full interview at once. Offer a recommendation when it helps clarify a choice, label it as a proposal, and avoid treating silence as agreement.
+
+Resolve dependencies in a useful order: business meaning and desired decision; actor and unit of analysis; start/success/failure boundaries; inclusion and exclusion rules; time window and latency; useful breakdowns; identity and available data; then how to collect and verify it. Explore the codebase for facts instead of asking questions it can answer.
+
+Separate an outcome from an implementation hypothesis. “Understand why trials fail to activate” does not automatically mean tracking every click. Existing server records, CRM data, or an already-collected event may answer the question. Distinguish client attempts, completed business actions, persistent traits, and derived metrics.
+
+Use concrete examples to expose ambiguity: whether an imported project counts as activation, whether a failed payment counts as a purchase, or whether a user or account is the conversion unit. Explain how the choice changes measurement.
+
+## Maintain the requirements
+
+Write agreed facts and open questions as the interview progresses using [requirements format](references/requirements-format.md). Preserve prior decisions and stable IDs. Keep hypotheses marked Proposed and scoped deferrals marked Deferred. Link existing tracking definitions rather than copying them.
+
+For each requirement, establish its name, description, desired decision, potential measurement, measurable success definition, data/identity needs, acceptance criteria, and unresolved choices. Include only relevant dimensions; don't make optional fields an endless questionnaire.
+
+## Completion
+
+Present the complete requirements document for the customer's review. It is ready for implementation when in-scope definitions and blocking choices are agreed, each outcome has a feasible measurement approach and pass/fail criteria, and deferrals are explicit. Do not mark it Agreed because the interview ended or a file was written. Report unresolved items without inventing answers. Implementation, live account changes, and background monitoring are not part of this interview.

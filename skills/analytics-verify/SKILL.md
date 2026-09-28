@@ -1,0 +1,44 @@
+---
+name: analytics-verify
+description: Verify analytics tracking against requirements, from real web or native interactions through final destination receipt. Use for tracking QA, regression checks, payload validation, and evidence-backed verification reports.
+license: MIT
+---
+
+# Verify tracking end to end
+
+Find the analytics workspace through project instructions and read preferences, tools/routes, requirements, tracking plan, and prior verification. If records are missing, establish the expected event behavior and test scope with the customer before declaring results. Other skills are optional, not required dependencies.
+
+## Establish the test boundary
+
+Identify the actual application/build revision, environment, URLs or app identifiers, destination accounts, SDK/container configuration, test identities, and available browser/device/API access. Use authorized test accounts and actions. A request to verify tracking is not permission to place a real paid order, send customer messages, or publish a production tag container. Use a safe authorized journey or state the missing prerequisite.
+
+Inspect current official documentation for the selected tool's receipt readback, payload constraints, batching/delay, region, and supported correlation fields. Do not depend on a bundled destination-specific logger or assume all providers have a query API. Prefer an available read API that proves receipt; otherwise inspect the actual destination interface.
+
+## Build cases
+
+Map each in-scope requirement/event to relevant positive, negative, property, identity, consent, configuration, and receipt cases. Each has steps, expected observations, route, and bounded observation window. Use the real trigger owner and distinguish intended behavior from current implementation. Existing disagreement needs resolution, not automatic acceptance of whichever source is easiest to inspect.
+
+## Run the journey
+
+Exercise real web interactions in the browser. For native apps, use available device, simulator, emulator, or user-assisted interaction with attributable evidence. A browser simulation cannot verify a native SDK. Don't substitute synthetic DOM clicks for an interaction whose real behavior differs.
+
+Observe the chain separately:
+
+1. The business action and canonical emission occurred as expected.
+2. The event, property values/types, identity, consent, and route mapping match the plan.
+3. The transport accepted the request, if that evidence is available.
+4. Each selected final destination independently shows receipt with the required semantics.
+
+An SDK call, fired tag, intercepted network request, HTTP success, or intermediate live feed alone is not final receipt. If an observation is unavailable, report that gap without manufacturing it from another layer. A receipt case may pass with independent destination evidence while an unobserved trigger-count case remains blocked.
+
+Correlate using the tool's supported event/request IDs or an isolated test identity and time window. Avoid adding arbitrary payload fields that the destination rejects. Bound polling using known latency and the test's deadline. If receipt is still pending at the deadline, record Blocked with the last observation; record Fail when evaluable evidence contradicts the expected outcome. Negative cases require evidence of absence in a stated window.
+
+Check relevant route changes, repeated renders/recomposition, restarts, failed actions, denied/revoked consent, login/logout, absent optional values, duplicates, and independent destination failure. Save sanitized API evidence or destination screenshots. Capture UI evidence with the host's native file/image tools; do not require a special screenshot receiver or hosted database.
+
+## Report and rerun
+
+Use [verification format](references/verification-format.md). Preserve a result per case and route, with Pass, Fail, Blocked, or Not run. Save new runs separately and compare only equivalent cases/revisions. Include exact missing access and user-assisted observations. Do not mark the whole implementation verified if required cases remain unproven.
+
+Recommend fixes with their actual owner. Apply fixes only within the user's authorized scope, then repeat affected cases in a new run. Refresh preview/debug sessions after relevant configuration changes; old previews may show old behavior. Respect existing production publishing rules without inventing approval steps for already-authorized reversible fixes.
+
+Return the report path, results, evidence links, and unresolved prerequisites. Verification is bounded work for this session, not an ongoing monitoring service.
