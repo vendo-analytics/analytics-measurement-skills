@@ -19,7 +19,7 @@ Each index entry has a purpose and actual canonical path or URL/ID. Resolve loca
 | Tracking | Event/property contracts, bindings, routes, cases | tracking-plan.md |
 | Decisions | Choices, conflicts, superseded decisions | decisions.md |
 | Tasks | Authorized bounded work, dependencies, acceptance criteria | Chosen tracker or existing local convention |
-| Verification | Per-run observations, results, sanitized evidence | verification/<run-id>/report.md and evidence/ |
+| Verification | Per-run observations, results, sanitized evidence | `verification/<run-id>/report.md` and `evidence/` |
 
 These filenames are defaults, not instructions to duplicate remote records. Create only records with real content and preserve customer edits.
 

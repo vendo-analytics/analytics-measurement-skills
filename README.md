@@ -130,7 +130,7 @@ Replace the example path with the actual location. For a chat-only assistant, su
 - If a command is missing, check the project and installation scope, then reload skills or start a new session. If a reference is missing, reinstall the complete skill folder.
 - If a browser, account, or native device is unavailable, continue the work that is possible and retain an explicit verification blocker.
 
-Installer checks cover Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CLI. The expanded Strategy/shared-record workflow and account-upload flows still need real-user evaluation. Installation alone does not establish live destination success.
+Current installation checks cover isolated Codex and Claude Code projects, including the full set and standalone entry points. The expanded Strategy/shared-record workflow and account-upload flows still need real-user evaluation. Installation alone does not establish live destination success.
 
 ## Start with a useful outcome
 
@@ -194,7 +194,7 @@ One business term has one authoritative meaning. Metrics link to that glossary w
 | Requirements/metrics | Definitions, evidence needs, acceptance criteria | requirements.md |
 | Tracking plan | Events, properties, bindings, mappings, cases | tracking-plan.md |
 | Decisions | Choices, reasons, superseded meanings | decisions.md |
-| Verification | Per-case results and sanitized evidence | verification/<run>/report.md |
+| Verification | Per-case results and sanitized evidence | `verification/<run>/report.md` |
 
 Create records when they have real content, reuse existing equivalents, and keep customer configuration outside installed skill folders. Each skill saves to the selected home and checks the write when possible. Missing access or readback stays explicit; an unpublished local draft is not presented as a remote document. Private tokens stay in your secret store or ignored configuration.
 
