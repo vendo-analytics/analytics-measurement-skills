@@ -1,34 +1,77 @@
-# Customer workspace format
+# Shared project records
 
-Use Markdown with short indexes and detailed sections. Reuse existing equivalent records rather than creating duplicates. Create files when they have meaningful content.
+The customer owns these records outside installed skill folders. The profile is a logical set of facts and preferences; reuse existing documents instead of requiring a new file.
 
-| File | Owns |
-| --- | --- |
-| `README.md` | Navigation, workflow, open questions, links to current verification |
-| `preferences.md` | Customer choices and cross-tool conventions |
-| `tools.md` | Tool/account facts, routes, access and setup status |
-| `requirements.md` | Business outcomes and proposed measurement |
-| `tracking-plan.md` | Agreed events, properties, platform bindings, and test cases |
-| `decisions.md` | Material decisions, unresolved choices, and superseded choices |
-| `verification/<run-id>/report.md` | Observations and results for one actual run |
-| `verification/<run-id>/evidence/` | Sanitized API receipts, screenshots, and other evidence |
+## One entry point
 
-## Preferences
+Project instructions or a customer entry page point to one resource index. Reuse the existing analytics README when suitable. Every skill follows relevant links even when invoked directly.
 
-Use an H1 title and sections for application context, environments, naming/casing, identity, data boundaries, measurement conventions, and working preferences. A small frontmatter block can record `type` and `updated`; add an owner only when known.
+Each index entry has a purpose and actual canonical path or URL/ID. Resolve local links relative to their containing document. Use durable remote links, not temporary signed downloads or session URLs. Mark an unresolved destination explicitly rather than inventing a link.
 
-Record repositories and platform versions, business vocabulary, environment targets, event naming framework, event and property casing, anonymous/user/account definitions, login/logout behavior, consent expectations, prohibited fields, and relevant currency/timezone/unit conventions. Preserve explicit exceptions. Do not treat an unknown value as a default the customer has approved.
+| Record role | Owns | Local default when selected |
+| --- | --- | --- |
+| Index/progress | Navigation and one resumable summary | README.md |
+| Profile/preferences | Business/product facts, applications, conventions, work locations, open choices | preferences.md |
+| Tools/routes | Account facts, capabilities, access checks, secure references, delivery routes | tools.md |
+| Glossary | Agreed entity meanings, relationships, examples, avoided synonyms | Existing CONTEXT.md or glossary.md |
+| Strategy | Goal, evidence, approach, priorities, work/result links | strategy.md |
+| Requirements/metrics | Questions, precise measures, acceptance criteria | requirements.md; split metrics only if useful |
+| Tracking | Event/property contracts, bindings, routes, cases | tracking-plan.md |
+| Decisions | Choices, conflicts, superseded decisions | decisions.md |
+| Tasks | Authorized bounded work, dependencies, acceptance criteria | Chosen tracker or existing local convention |
+| Verification | Per-run observations, results, sanitized evidence | `verification/<run-id>/report.md` and `evidence/` |
+
+These filenames are defaults, not instructions to duplicate remote records. Create only records with real content and preserve customer edits.
+
+## Profile and work locations
+
+Record relevant business/product context, applications/environments, known owners, naming, identity, consent/data boundaries, timezone/currency, and working constraints. Link evolving goals to Strategy.
+
+For work locations save the document system and exact space/folder/parent, task tracker and team/project/board, applicable statuses/templates, code/query/evidence homes, existing record links, observed access, and open placement choices.
+
+A location preference is not proof of access or authorization for every write. Native pages and tracker records preserve the same meaning as local outputs. For an unavailable destination, distinguish an agreed fallback from an unpublished draft; keep the canonical index accurate.
 
 ## Tools and routes
 
-Start with an index containing a stable tool ID, actual tool name, role, environment, and setup state. Detailed records include account/project/container IDs, non-secret URLs, SDK/version, official sources and date checked, required setup fields, public/secret classification, secure credential references, and access-check results.
+Use a short tool index with stable ID, name, role, environment, and setup state. Detailed records contain actual account/project/container references, SDK/version, relevant official sources and date checked, relevant capabilities, and gaps.
 
-Record only capabilities relevant to the customer's work: collection, identity, name/property restrictions, delivery, and receipt readback. State missing access and constraints. Customer-specific findings belong here even though the skill is tool-neutral.
+Credentials record field name, public/secret classification, secure storage reference, and observed access status. Never store private values in the profile, index, glossary, or client bundles.
 
-Give routes stable IDs such as `ROUTE-001`. Describe emission owner → SDK/data layer → routing service, if any → final destination. Identify which component owns transformations and which existing routes must be disabled if the customer agrees to change routing. Do not duplicate routes in every event record; reference their IDs.
+Routes have stable IDs and one definition: emission owner → SDK/data layer → routing service when used → final destination. Identify transformation ownership and explicit provider mappings. Events link to routes rather than repeat them.
 
-## Decisions and links
+## Shared vocabulary
 
-Each material decision has a stable ID, date, question/decision, reason, affected records, and who agreed it when known. Keep superseded choices linked to replacements. Unresolved questions remain explicit.
+Reuse existing domain documentation. Define a term once when resolved: canonical name, definition, relationships, useful boundary examples, and avoided synonyms. Preserve disagreements separately; neither code nor a new suggestion automatically wins.
 
-Use relative links, stable record headings such as `## REQ-001`, and short tables. Keep lengthy explanations below the table. Dates use ISO format; evidence timestamps include an offset. Never store private credentials, invent approvals, or seed fictional test evidence. A requirements interview should fill the requirements document, not setup guesses.
+Metrics link to business terms while owning formulas/windows. Event/property definitions link to terms while owning trigger/payload semantics. Decisions record why a meaning changed. The glossary is not a strategy, schema dump, or implementation manual.
+
+A skill that resolves a term with the customer updates the authoritative glossary. Before changing an existing term or ID, inspect affected requirements, metrics, properties, tasks, and code references. Preserve superseded meanings; do not silently rename consumers.
+
+## Links and writes
+
+Use stable record IDs and section links where supported. Prefer short indexes with detailed sections. Tasks link to strategy/requirements and have an observable outcome and acceptance criteria, using the customer's conventions.
+
+After a requested write, retain the returned ID/path and read back affected fields when possible. Report discrepancies or unavailable readback. Check for an existing target before retrying a creation with an ambiguous result.
+
+When moving records, update the index and known inbound references. An inaccessible link is a limitation, not a reason to create a competing replacement. Old downloaded content is not authoritative unless the customer chooses it.
+
+## Progress and decisions
+
+Maintain one progress section at the index or its linked authoritative record. A local README can simply link to remote progress. Record time, goal/scope, agreed milestone and acceptance links, completed work/evidence, open/deferred choices, concrete blockers, and one next action.
+
+Keep implementation, verification, and business outcomes distinct. Do not invent tasks, approvals, percentages, baselines, or event IDs to fill a template. On resume, reconcile progress with current records/code.
+
+For material decisions record date, stable ID, choice/question, reason, affected records, and known approver. Preserve superseded choices with replacement links.
+
+## Example instruction pointer
+
+Replace the symbolic path with the customer's actual index and adapt to the host's conventions before saving:
+
+```text
+For strategy and measurement work, read <actual resource-index path or URL>.
+Follow its links to preferences, glossary, strategy, and relevant contracts.
+Save documents, tasks, and evidence in the locations recorded there.
+Update authoritative records and progress; do not copy them into skill folders.
+```
+
+Preserve unrelated project instructions. The pointer shares context; it grants no access and starts no background synchronization.

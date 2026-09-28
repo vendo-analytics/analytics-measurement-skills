@@ -1,6 +1,6 @@
 # Requirements document
 
-Write `requirements.md` in the chosen analytics workspace. Preserve an established equivalent format if it contains the needed information.
+Update the requirements record linked from the resource index at the selected document location. For local storage, `requirements.md` is the default. Use native pages for remote records, preserving equivalent established formats and stable links.
 
 Begin with an H1 title, the business context in plain language, and an index with ID, name, and status. Use `Proposed`, `Agreed`, and `Deferred` to describe the decision state. Add short file metadata such as `type` and `updated` when useful.
 
@@ -15,6 +15,7 @@ Each record uses a stable heading, for example `## REQ-001`, with the human-read
 | Success definition | Unit of analysis, boundaries, population, exclusions, and time window |
 | Data needs | Required identities, properties, dimensions, latency, and relevant tools |
 | Acceptance criteria | Specific pass/fail conditions for answering the question |
+| Definition references | Links to canonical glossary terms and metric definitions; formulas/windows live in the metric record |
 | Tracking references | Links to actual event IDs when they exist |
 | Open questions | What remains unknown, who can resolve it, and why it matters |
 | Status | Proposed, Agreed, or Deferred, with evidence of agreement when available |

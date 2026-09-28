@@ -1,8 +1,26 @@
-# Improvement candidates
+# Experience improvements
 
-Status: Ideas for evaluation, not approved scope or instructions to installed skills.
+Status: The five approved improvements below are implemented in the current PR. Real customer workflow evaluation remains pending. Remaining candidates are not approved scope.
 
-Use evidence from the first real skill runs to decide which of these are worth building. Keep V1's generalized tool workflow and no-background-service boundary intact.
+Keep the generalized tool workflow and no-background-service boundary intact. The local tracking library remains a separate V1 candidate.
+
+## Approved improvements
+
+| Change | Implementation | Evaluation still needed |
+| --- | --- | --- |
+| One starting point | `analytics-start` reads current state and continues the relevant installed workflow, with a bounded fallback when used alone | New setup, an existing receipt problem, and starter-only use all reach a useful next step |
+| Adaptive onboarding | Setup shows discovered facts, asks at most three unresolved questions, and records optional deferrals with agreement | No repeated questions; deferred tools do not block unrelated work; necessary decisions remain explicit |
+| First verified event | Agree one useful event and selected destinations when the customer has not specified scope | A blocked destination cannot disappear from the milestone; broad requests retain their full scope |
+| Resumable progress | Every workflow maintains the customer workspace README's Progress section with record links and one next action | A different assistant resumes without chat history, preserves customer edits, and reconciles stale evidence |
+| Uploadable archives | `scripts/package_skills.py` builds one ZIP per skill; CI checks source and license fidelity | Confirm Claude app accepts the archives and reads bundled references in an authenticated user session |
+
+The test cases live in `tests/scenarios.md`. Packaging and installation checks establish file correctness; they do not replace real agent trials. Connection blockers now identify the missing account, environment, access, or action; evaluate whether customers can resolve them without extra explanation.
+
+## Remaining candidate
+
+Show the measurement impact of a code change: present affected requirements, events, destinations, and verification before changing a contract. Maintenance already identifies affected records; evaluate whether its presentation lets customers distinguish an intentional definition change from a regression before adding another artifact or workflow.
+
+## Further candidates
 
 | Candidate | Problem to validate | Possible outcome | Evidence before pickup |
 | --- | --- | --- | --- |
