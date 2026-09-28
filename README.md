@@ -4,37 +4,133 @@ Give your coding agent a measurement workflow: understand the business question,
 
 Five portable skills for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
 
-## Install
+## Choose your assistant
 
-From your application's repository, install all five for Codex and Claude Code:
+Open the **application you want to measure**, then install the skills there. Terminal commands below require Node.js/npm, which supplies `npx`. The skills themselves are Markdown; they do not require a Node.js application.
+
+- [Codex](#codex)
+- [Claude Code](#claude-code)
+- [Claude app and Cowork](#claude-app-and-cowork)
+- [Cursor, GitHub Copilot, Gemini CLI, and other coding assistants](#other-coding-assistants)
+- [Manual installation or an assistant without skill discovery](#manual-installation-and-other-assistants)
+
+Using both Codex and Claude Code? Install for both in one command:
 
 ```sh
 npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a codex -a claude-code
 ```
 
-The [skills installer](https://github.com/vercel-labs/skills) supports other agents and interactive selection:
+### Codex
+
+Run in your application's repository:
 
 ```sh
-npx skills add vendo-analytics/analytics-measurement-skills
+npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a codex
 ```
 
-Installation is project-local by default. Add `--global` for personal use across projects. To install a single workflow, use `--skill analytics-setup`, for example. For manual installation, copy the **entire skill folder**, including its references, into the skill directory documented by your agent. Every skill works independently.
-
-## Start here
-
-In Codex:
+Open that project in Codex and send:
 
 ```text
 $analytics-setup Set up measurement for this application.
 ```
 
-In Claude Code:
+Project skills are stored in `.agents/skills/`. If a skill is missing, start a new session in that project and check the installed files. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills) and [project customization](https://learn.chatgpt.com/docs/customization/overview#skills).
+
+### Claude Code
+
+Run in your application's repository:
+
+```sh
+npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a claude-code
+```
+
+Open Claude Code in the same project and send:
 
 ```text
 /analytics-setup Set up measurement for this application.
 ```
 
-Then work through the flows you need:
+Claude Code reads `.claude/skills/`. The installer may link those folders to shared copies in `.agents/skills/`; keep the targets with your project. See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills).
+
+### Claude app and Cowork
+
+Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
+
+1. Download this repository with GitHub's **Code → Download ZIP**, then extract it.
+2. Inside `skills/`, ZIP each skill folder you want to use, including its `SKILL.md` and references. For example, `analytics-setup.zip` should contain `analytics-setup/SKILL.md` and `analytics-setup/references/workspace-format.md`. Do not upload the whole repository as one skill.
+3. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
+4. Ask: “Use analytics-setup to help me set up measurement for this application.” Give the session access to the relevant project files.
+
+Available repository, browser, and device access depends on the session. With uploaded documents only, start with setup and requirements; implementing and verifying an application requires access to its actual code and test environment. Account-synced skills and local project files have different loading rules; see [Cowork and cloud-session guidance](https://code.claude.com/docs/en/skills#use-skills-in-cowork-and-cloud-sessions).
+
+### Other coding assistants
+
+Run the matching command from your application's repository:
+
+```sh
+# Cursor
+npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a cursor
+
+# GitHub Copilot
+npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a github-copilot
+
+# Gemini CLI
+npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a gemini-cli
+```
+
+Open the same project in your assistant's agent mode and ask:
+
+```text
+Use the analytics-setup skill to set up measurement for this application.
+Read the existing analytics workspace first, if there is one.
+```
+
+Use the host's skill picker or discovery controls if it does not load the skill. Gemini CLI provides `/skills list` and `/skills reload`. See the current instructions for [Cursor](https://cursor.com/docs/skills), [GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills), and [Gemini CLI](https://geminicli.com/docs/cli/skills/).
+
+For another host, use the [installer's supported-agent list](https://github.com/vercel-labs/skills#supported-agents) or choose your host interactively:
+
+```sh
+npx skills add vendo-analytics/analytics-measurement-skills
+```
+
+### Manual installation and other assistants
+
+Download and extract this repository. Copy each **complete skill folder**, including references, to your host's documented skill directory. Codex uses project `.agents/skills/`; Claude Code uses project `.claude/skills/`. Every skill is self-contained.
+
+If your assistant can read files but has no skill-discovery feature, give it the path to the extracted skill and ask:
+
+```text
+Read analytics-measurement-skills/skills/analytics-setup/SKILL.md.
+Use it for this application's measurement setup, reading the linked
+references as needed. Save preferences in the application workspace.
+```
+
+Replace the example path with the actual location. For a chat-only assistant, supply the skill and relevant reference files along with your project context. It can help with planning; file edits and receipt checks need suitable connected tools. Automatic discovery and command syntax are host-specific.
+
+### Check, update, or troubleshoot installation
+
+- Installation is project-local by default. Add `--global` for personal use across projects; this does not sync files to hosted or cloud sessions.
+- Use `--skill analytics-setup` to install only setup. Other skills are optional.
+- If symlinks are unavailable, add `--copy` to the install command.
+- Run `npx skills list` to inspect installed skills. This checks installation, not whether the current assistant session loaded them.
+- To update, rerun your original install command and review any replacement prompt. Customer preferences live in your separate analytics workspace and should never be stored in the installed skill folder.
+- If a command is missing, check the project and installation scope, then reload skills or start a new session. If a reference is missing, reinstall the complete skill folder.
+- If a browser, account, or native device is unavailable, continue the work that is possible and retain an explicit verification blocker.
+
+Installer checks cover Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CLI. Full agent workflows and account-upload flows still need evaluation. Installation alone does not establish live destination success.
+
+## Your first measurement journey
+
+Start with **one business question and one useful event**. You can expand after the first destination receipt is verified:
+
+1. **Setup:** discover existing tracking, choose where analytics work lives, and save your tools and preferences. You can answer “not sure” and leave a decision open.
+2. **Requirements:** explain what you want to understand and the decision it should support. Refine the event's meaning before writing code.
+3. **Implementation and verification:** implement the agreed event, exercise the actual journey, and check each selected destination. An unavailable account becomes a specific next action.
+4. **Maintenance:** when a feature or tool changes, ask the agent to review the affected measurement.
+
+If you already have tracking, start with a scoped verification or maintenance request. You do not need to restart onboarding or invoke every skill.
+
+The available workflows:
 
 | Skill | What it does | Example request |
 | --- | --- | --- |
@@ -43,6 +139,18 @@ Then work through the flows you need:
 | [analytics-implement](skills/analytics-implement/SKILL.md) | Reuses real application triggers and routes events through your chosen tools | “Implement the agreed activation tracking.” |
 | [analytics-verify](skills/analytics-verify/SKILL.md) | Exercises the real journey and checks receipt in each final destination | “Verify signup tracking and save the evidence.” |
 | [analytics-maintain](skills/analytics-maintain/SKILL.md) | Checks a feature change or requested audit for measurement drift, then updates affected records | “Review the analytics affected by this checkout change.” |
+
+### Resume or switch assistants
+
+Open the same application and analytics workspace in the next assistant, with the needed skill installed. Ask:
+
+```text
+Read our analytics workspace and summarize agreed decisions, completed work,
+and unresolved questions. Continue the next measurement step without
+repeating answered setup questions. Ask about conflicting information.
+```
+
+Use the workspace path saved in your project's agent instructions. The files carry the handover; a new assistant does not need the previous chat history. Keep one editable workspace across assistants and reconcile concurrent edits before continuing.
 
 ## Your measurement workspace
 
@@ -100,7 +208,7 @@ python3 -m venv .venv
 
 Validation checks skill metadata, local file links, and package boundaries. It does not prove an agent's behavior or live destination delivery. Use the [real-workflow evaluation cases](tests/scenarios.md) to test those separately.
 
-Maintainer roadmap and improvements live in [To Do](To%20Do/README.md), outside installable skills. Future standalone tracker work is deferred beyond V1.
+Maintainer tasks and improvements live in [To Do](To%20Do/README.md), outside installable skills. A [local tracking library](To%20Do/local-tracking-library.md) for centralized event delivery is being considered for V1; it is not included in this release.
 
 ## Credits and license
 
