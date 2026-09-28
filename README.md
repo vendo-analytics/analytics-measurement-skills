@@ -2,7 +2,7 @@
 
 Give your coding agent a measurement workflow: understand the business question, document the tracking plan, implement events, verify destination receipt, and keep it current as your application changes.
 
-Five portable skills for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
+Six portable skills: one starting point and five focused workflows for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
 
 ## Choose your assistant
 
@@ -31,7 +31,7 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a codex
 Open that project in Codex and send:
 
 ```text
-$analytics-setup Set up measurement for this application.
+$analytics-start Help me with measurement for this application.
 ```
 
 Project skills are stored in `.agents/skills/`. If a skill is missing, start a new session in that project and check the installed files. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills) and [project customization](https://learn.chatgpt.com/docs/customization/overview#skills).
@@ -47,7 +47,7 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a claud
 Open Claude Code in the same project and send:
 
 ```text
-/analytics-setup Set up measurement for this application.
+/analytics-start Help me with measurement for this application.
 ```
 
 Claude Code reads `.claude/skills/`. The installer may link those folders to shared copies in `.agents/skills/`; keep the targets with your project. See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills).
@@ -56,10 +56,20 @@ Claude Code reads `.claude/skills/`. The installer may link those folders to sha
 
 Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
 
-1. Download this repository with GitHub's **Code → Download ZIP**, then extract it.
-2. Inside `skills/`, ZIP each skill folder you want to use, including its `SKILL.md` and references. For example, `analytics-setup.zip` should contain `analytics-setup/SKILL.md` and `analytics-setup/references/workspace-format.md`. Do not upload the whole repository as one skill.
-3. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
-4. Ask: “Use analytics-setup to help me set up measurement for this application.” Give the session access to the relevant project files.
+1. Download the ZIPs below. Each contains one complete skill, its references, and the MIT license. Install all six for the full workflow, or start with `analytics-start` alone.
+2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
+3. Ask: “Use analytics-start to help me with measurement for this application.” Give the session access to the relevant project files.
+
+| Download | Purpose |
+| --- | --- |
+| [analytics-start.zip](downloads/analytics-start.zip?raw=1) | Choose the next step or resume |
+| [analytics-setup.zip](downloads/analytics-setup.zip?raw=1) | Tools and preferences |
+| [analytics-requirements.zip](downloads/analytics-requirements.zip?raw=1) | Outcomes and event definitions |
+| [analytics-implement.zip](downloads/analytics-implement.zip?raw=1) | Instrument the application |
+| [analytics-verify.zip](downloads/analytics-verify.zip?raw=1) | Verify destination receipt |
+| [analytics-maintain.zip](downloads/analytics-maintain.zip?raw=1) | Keep measurement current |
+
+These archives are generated from the skill source in this revision. Do not upload the whole repository as one skill. If downloading the repository instead, the same ZIPs are in `downloads/`.
 
 Available repository, browser, and device access depends on the session. With uploaded documents only, start with setup and requirements; implementing and verifying an application requires access to its actual code and test environment. Account-synced skills and local project files have different loading rules; see [Cowork and cloud-session guidance](https://code.claude.com/docs/en/skills#use-skills-in-cowork-and-cloud-sessions).
 
@@ -81,7 +91,7 @@ npx skills add vendo-analytics/analytics-measurement-skills --skill '*' -a gemin
 Open the same project in your assistant's agent mode and ask:
 
 ```text
-Use the analytics-setup skill to set up measurement for this application.
+Use analytics-start to help me with measurement for this application.
 Read the existing analytics workspace first, if there is one.
 ```
 
@@ -100,9 +110,9 @@ Download and extract this repository. Copy each **complete skill folder**, inclu
 If your assistant can read files but has no skill-discovery feature, give it the path to the extracted skill and ask:
 
 ```text
-Read analytics-measurement-skills/skills/analytics-setup/SKILL.md.
-Use it for this application's measurement setup, reading the linked
-references as needed. Save preferences in the application workspace.
+Read analytics-measurement-skills/skills/analytics-start/SKILL.md.
+Use it to choose and continue the next measurement step.
+Save decisions and progress in the application workspace.
 ```
 
 Replace the example path with the actual location. For a chat-only assistant, supply the skill and relevant reference files along with your project context. It can help with planning; file edits and receipt checks need suitable connected tools. Automatic discovery and command syntax are host-specific.
@@ -110,7 +120,7 @@ Replace the example path with the actual location. For a chat-only assistant, su
 ### Check, update, or troubleshoot installation
 
 - Installation is project-local by default. Add `--global` for personal use across projects; this does not sync files to hosted or cloud sessions.
-- Use `--skill analytics-setup` to install only setup. Other skills are optional.
+- Use `--skill analytics-start` for just the entry point, or select any focused skill by name. The entry point uses installed workflows when available and can perform a bounded next step on its own.
 - If symlinks are unavailable, add `--copy` to the install command.
 - Run `npx skills list` to inspect installed skills. This checks installation, not whether the current assistant session loaded them.
 - To update, rerun your original install command and review any replacement prompt. Customer preferences live in your separate analytics workspace and should never be stored in the installed skill folder.
@@ -121,7 +131,7 @@ Installer checks cover Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CL
 
 ## Your first measurement journey
 
-Start with **one business question and one useful event**. You can expand after the first destination receipt is verified:
+Start with `analytics-start`; it reads what already exists and continues the relevant workflow. For new work without a defined scope, agree **one business question and one useful event** first. Expand after the agreed cases and all selected destinations are verified; broader requests keep their full scope:
 
 1. **Setup:** discover existing tracking, choose where analytics work lives, and save your tools and preferences. You can answer “not sure” and leave a decision open.
 2. **Requirements:** explain what you want to understand and the decision it should support. Refine the event's meaning before writing code.
@@ -134,6 +144,7 @@ The available workflows:
 
 | Skill | What it does | Example request |
 | --- | --- | --- |
+| [analytics-start](skills/analytics-start/SKILL.md) | Reads project progress and continues the next relevant workflow | “Help me with analytics.” |
 | [analytics-setup](skills/analytics-setup/SKILL.md) | Surveys your tools, environments, routing, naming, and setup details; saves preferences | “Add our new CRM to the existing analytics setup.” |
 | [analytics-requirements](skills/analytics-requirements/SKILL.md) | Starts with outcomes, then refines requirements three questions at a time | “Help us understand why trial accounts fail to activate.” |
 | [analytics-implement](skills/analytics-implement/SKILL.md) | Reuses real application triggers and routes events through your chosen tools | “Implement the agreed activation tracking.” |
@@ -145,12 +156,12 @@ The available workflows:
 Open the same application and analytics workspace in the next assistant, with the needed skill installed. Ask:
 
 ```text
-Read our analytics workspace and summarize agreed decisions, completed work,
+Use analytics-start. Read our analytics workspace and summarize agreed decisions, completed work,
 and unresolved questions. Continue the next measurement step without
 repeating answered setup questions. Ask about conflicting information.
 ```
 
-Use the workspace path saved in your project's agent instructions. The files carry the handover; a new assistant does not need the previous chat history. Keep one editable workspace across assistants and reconcile concurrent edits before continuing.
+Use the workspace path saved in your project's agent instructions. The files carry the handover; a new assistant does not need the previous chat history. Keep one editable workspace across assistants and reconcile concurrent edits before continuing. Each workflow maintains a short `Progress` section in its README: scope, completed work, open decisions, specific blockers, and one next action. It links to the actual records and evidence; the next session checks those against current code.
 
 ## Your measurement workspace
 
@@ -160,7 +171,7 @@ Files grow as work happens:
 
 | Artifact | Content |
 | --- | --- |
-| `README.md` | Workspace navigation, scope, and ownership |
+| `README.md` | Workspace navigation, scope, ownership, and resumable progress |
 | `preferences.md` | Platforms, environments, event/property casing, identity and data rules |
 | `tools.md` | Selected tools, account references, capabilities, credentials references, and delivery routes |
 | `requirements.md` | Business questions, definitions, potential measurements, and acceptance criteria |
@@ -203,8 +214,12 @@ Explore [Vendo's documentation](https://docs.vendodata.com/) for current capabil
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python scripts/validate.py
+.venv/bin/python scripts/package_skills.py
+.venv/bin/python scripts/package_skills.py --check
 .venv/bin/python -m unittest discover -s tests -v
 ```
+
+Edit `skills/` as the source of truth, then regenerate and commit the ZIPs in `downloads/`. CI checks that every archive matches its source and license; archive tests cover extraction, changed sources, corruption, and excluded local files.
 
 Validation checks skill metadata, local file links, and package boundaries. It does not prove an agent's behavior or live destination delivery. Use the [real-workflow evaluation cases](tests/scenarios.md) to test those separately.
 

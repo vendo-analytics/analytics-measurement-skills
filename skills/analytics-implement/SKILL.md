@@ -32,6 +32,8 @@ Public collection IDs may belong in clients; private API credentials do not belo
 
 ## Implement and verify
 
+If the customer has agreed a first-event milestone, complete that event's selected routes and cases before expanding to more events. Do not reduce an explicitly broader scope or remove a required destination because access is missing. Reuse suitable existing instrumentation instead of adding a demonstration-only event.
+
 Complete the actual requested path: initialization, trigger, payload, identity transitions, consent behavior, route mapping, and failure isolation. Preserve supported SDK behavior for retries/buffering instead of building a background service. A tracking exception must not block the customer's business action. Do not silently drop fields or normalize reserved names in ways that change their meaning.
 
 Run the smallest relevant checks for the changed path. Exercise actual interactions in the browser or native device/simulator when available. Check repeated rendering, navigation, reload/restart, failed business actions, denied consent, logout, and existing automatic capture where relevant. A local unit test or emitted request alone does not prove destination receipt.
@@ -39,3 +41,5 @@ Run the smallest relevant checks for the changed path. Exercise actual interacti
 Then verify each selected final destination through a read API or its interface, correlated to the test event/identity and time window. Use the verification skill if installed, or record the same evidence yourself: revision, environment, steps, expected/observed values, receipt, and limitations. Missing receipt access remains Blocked, not Pass. Keep authorized changes and blocked external configuration clearly distinguished; never present a partly wired path as complete.
 
 Update real code references and implementation states in the tracking plan. Mark the contract Agreed only from customer agreement, a binding Implemented only after it exists, and receipt verified only from evidence. Report what changed, focused checks, per-destination results, and remaining prerequisites.
+
+Update one `## Progress` section in the workspace README after meaningful progress and before yielding: time, scope/stage, completed work with links, open decisions, blockers with concrete next actions, and one recommended next step. Link the actual code/contract/evidence; do not mark the first milestone verified while its agreed cases remain unproven. On resume, reconcile the summary with current records and code rather than redoing completed work.

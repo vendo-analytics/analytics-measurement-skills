@@ -16,7 +16,11 @@ Find existing preferences, tracking plans, and prior setup records. If several f
 
 ## Survey
 
-Summarize what you found, then ask only the unresolved questions. Keep rounds short and adapt them to the customer's answers:
+Show a short summary of discovered facts and their sources for correction; do not ask the customer to re-enter them. For new work without a specified scope, agree one business question/journey and the tools needed for its first useful event. Keep broader requests intact.
+
+Ask at most three unresolved questions per round, prioritizing decisions needed for that journey. Offer a recommendation with a reason where helpful and allow “not sure” or “later.” Record these as open or explicitly deferred, never as approval of a default. Optional destinations must not block unrelated work; required routing, identity, consent, or secret-handling decisions must be resolved before dependent instrumentation. Do not request credentials for tools the customer has deferred.
+
+Use the following as coverage to adapt, not a questionnaire to deliver all at once:
 
 1. Which tools do they use or want to configure? Cover analytics, advertising, CRMs, experiments, CDPs, tag management, warehouses, and consent where relevant. Distinguish installed from desired tools and record each role.
 2. Which applications, environments, accounts, and business journeys are in scope? Capture native package/bundle identifiers as well as web URLs when applicable.
@@ -26,7 +30,7 @@ Summarize what you found, then ask only the unresolved questions. Keep rounds sh
 
 ## Obtain setup details
 
-For each selected tool, inspect its current official SDK/API documentation and the customer's installed version. Discover required identifiers, region/endpoint, public collection keys, private credentials, scopes, and receipt verification options. Record source links and the date checked. There is no fixed destination list.
+For each tool needed now, inspect its current official SDK/API documentation and the customer's installed version. Discover required identifiers, region/endpoint, public collection keys, private credentials, scopes, and receipt verification options. Record source links and the date checked. There is no fixed destination list.
 
 Offer available connectors/APIs or the built-in browser to help find account details. Let the customer handle login and MFA. If browser access is unavailable, provide precise manual steps and continue independent discovery. Do not ask them to paste private tokens into tracked Markdown. Use their existing secret store or ignored environment configuration; persist references only. Treat browser collection identifiers and private management credentials differently. Native application bundles are also client-distributed code, not secret storage.
 
@@ -42,4 +46,6 @@ Rerunning setup merges changes into the current files. Preserve customer edits, 
 
 ## Finish
 
-List the files changed, agreed choices, unresolved questions, access status, and next measurement work. A workspace can be ready while a specific tool is blocked. Keep configuration, implementation, and verified receipt distinct. Do not create background services as part of setup.
+Maintain the workspace README's `## Progress` section using the workspace format as decisions change and before yielding. On rerun, reconcile it with the linked records and continue unresolved work rather than restarting the survey.
+
+List the files changed, agreed choices, unresolved questions, access status, and one next action. For blocked setup, name the tool/account/environment, missing access or decision, and the concrete action needed; never include a private token. A workspace can be ready while a specific tool is blocked. Keep configuration, implementation, and verified receipt distinct. Do not create background services as part of setup.

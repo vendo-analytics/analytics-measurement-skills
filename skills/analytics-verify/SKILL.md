@@ -16,6 +16,8 @@ Inspect current official documentation for the selected tool's receipt readback,
 
 ## Build cases
 
+For an agreed first-event milestone, verify its full selected route and case scope. A passing event in one destination must not hide a required destination or negative case that remains blocked. Prefer exercising the real business action over creating a synthetic event solely to obtain a receipt.
+
 Map each in-scope requirement/event to relevant positive, negative, property, identity, consent, configuration, and receipt cases. Each has steps, expected observations, route, and bounded observation window. Use the real trigger owner and distinguish intended behavior from current implementation. Existing disagreement needs resolution, not automatic acceptance of whichever source is easiest to inspect.
 
 ## Run the journey
@@ -42,3 +44,5 @@ Use [verification format](references/verification-format.md). Preserve a result 
 Recommend fixes with their actual owner. Apply fixes only within the user's authorized scope, then repeat affected cases in a new run. Refresh preview/debug sessions after relevant configuration changes; old previews may show old behavior. Respect existing production publishing rules without inventing approval steps for already-authorized reversible fixes.
 
 Return the report path, results, evidence links, and unresolved prerequisites. Verification is bounded work for this session, not an ongoing monitoring service.
+
+Update one `## Progress` section in the workspace README after a result changes and before yielding: time, scope/stage, completed work with links, open decisions, blockers with concrete next actions, and one recommended next step. Mark a first-event milestone verified only when all its agreed cases pass, including each selected destination's receipt. Otherwise name the missing account/environment/access or unresolved evidence. Link this run without copying its result table. On resume, check the recorded revision and current code before reusing evidence.

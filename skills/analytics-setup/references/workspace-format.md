@@ -4,7 +4,7 @@ Use Markdown with short indexes and detailed sections. Reuse existing equivalent
 
 | File | Owns |
 | --- | --- |
-| `README.md` | Navigation, workflow, open questions, links to current verification |
+| `README.md` | Navigation and one resumable progress summary linking to current decisions and evidence |
 | `preferences.md` | Customer choices and cross-tool conventions |
 | `tools.md` | Tool/account facts, routes, access and setup status |
 | `requirements.md` | Business outcomes and proposed measurement |
@@ -12,6 +12,19 @@ Use Markdown with short indexes and detailed sections. Reuse existing equivalent
 | `decisions.md` | Material decisions, unresolved choices, and superseded choices |
 | `verification/<run-id>/report.md` | Observations and results for one actual run |
 | `verification/<run-id>/evidence/` | Sanitized API receipts, screenshots, and other evidence |
+
+## Progress in the workspace README
+
+Maintain one `## Progress` section, or reuse the customer's equivalent, with:
+
+- Updated time, current business scope, and stage: setup, requirements, implementation, verification, or maintenance.
+- First milestone, when agreed: the business question, event/requirement links, selected routes, and acceptance-case links. Do not invent event IDs before their records exist.
+- Completed work: short statements linking to actual files or evidence.
+- Open decisions and explicitly deferred scope, linking to their owning records.
+- Blockers: affected tool/account/environment, missing access or evidence, who can resolve it when known, and concrete action needed. No credentials.
+- One recommended next action that follows the earliest unresolved dependency.
+
+Update after meaningful progress and before yielding, including a blocked stop. Other skills maintain the same section. Keep it concise; contracts and results remain in their owning files. A stage is not proof of completion. If the summary disagrees with current code or linked records, reconcile the difference on resume before changing anything dependent on it. Preserve unrelated README content and customer edits. No separate progress database or percentage-complete estimate is needed.
 
 ## Preferences
 

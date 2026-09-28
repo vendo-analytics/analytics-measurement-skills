@@ -24,6 +24,8 @@ Use concrete examples to expose ambiguity: whether an imported project counts as
 
 ## Maintain the requirements
 
+When starting without an existing scope, propose one business question and one useful event as the first milestone. Agree the selected destinations and positive/negative acceptance cases. Keep broader requirements visible and defer optional work only by agreement. This prioritizes delivery; it does not replace the customer's requested scope or prove that one event answers the entire business question.
+
 Write agreed facts and open questions as the interview progresses using [requirements format](references/requirements-format.md). Preserve prior decisions and stable IDs. Keep hypotheses marked Proposed and scoped deferrals marked Deferred. Link existing tracking definitions rather than copying them.
 
 For each requirement, establish its name, description, desired decision, potential measurement, measurable success definition, data/identity needs, acceptance criteria, and unresolved choices. Include only relevant dimensions; don't make optional fields an endless questionnaire.
@@ -31,3 +33,5 @@ For each requirement, establish its name, description, desired decision, potenti
 ## Completion
 
 Present the complete requirements document for the customer's review. It is ready for implementation when in-scope definitions and blocking choices are agreed, each outcome has a feasible measurement approach and pass/fail criteria, and deferrals are explicit. Do not mark it Agreed because the interview ended or a file was written. Report unresolved items without inventing answers. Implementation, live account changes, and background monitoring are not part of this interview.
+
+As answers are saved and before yielding, update one `## Progress` section in the workspace README: time, scope/stage, completed work with links, open decisions, blockers with concrete next actions, and one recommended next step. Preserve existing content and link the authoritative records. On resume, check those records and continue unresolved questions instead of repeating the interview.
