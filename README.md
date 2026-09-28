@@ -56,18 +56,18 @@ Claude Code reads `.claude/skills/`. The installer may link those folders to sha
 
 Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
 
-1. Download the ZIPs below. Each contains one complete skill, its references, and the MIT license. Install all six for the full workflow, or start with `analytics-start` alone.
+1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all six for the full workflow, or start with `analytics-start` alone.
 2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
 3. Ask: “Use analytics-start to help me with measurement for this application.” Give the session access to the relevant project files.
 
 | Download | Purpose |
 | --- | --- |
-| [analytics-start.zip](downloads/analytics-start.zip?raw=true) | Choose the next step or resume |
-| [analytics-setup.zip](downloads/analytics-setup.zip?raw=true) | Tools and preferences |
-| [analytics-requirements.zip](downloads/analytics-requirements.zip?raw=true) | Outcomes and event definitions |
-| [analytics-implement.zip](downloads/analytics-implement.zip?raw=true) | Instrument the application |
-| [analytics-verify.zip](downloads/analytics-verify.zip?raw=true) | Verify destination receipt |
-| [analytics-maintain.zip](downloads/analytics-maintain.zip?raw=true) | Keep measurement current |
+| [analytics-start.zip](downloads/analytics-start.zip) | Choose the next step or resume |
+| [analytics-setup.zip](downloads/analytics-setup.zip) | Tools and preferences |
+| [analytics-requirements.zip](downloads/analytics-requirements.zip) | Outcomes and event definitions |
+| [analytics-implement.zip](downloads/analytics-implement.zip) | Instrument the application |
+| [analytics-verify.zip](downloads/analytics-verify.zip) | Verify destination receipt |
+| [analytics-maintain.zip](downloads/analytics-maintain.zip) | Keep measurement current |
 
 These archives are generated from the skill source in this revision. Do not upload the whole repository as one skill. If downloading the repository instead, the same ZIPs are in `downloads/`.
 
