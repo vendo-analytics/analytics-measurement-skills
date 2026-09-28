@@ -62,12 +62,12 @@ Local Claude Code installation does not install skills into your Claude account.
 
 | Download | Purpose |
 | --- | --- |
-| [analytics-start.zip](downloads/analytics-start.zip?raw=1) | Choose the next step or resume |
-| [analytics-setup.zip](downloads/analytics-setup.zip?raw=1) | Tools and preferences |
-| [analytics-requirements.zip](downloads/analytics-requirements.zip?raw=1) | Outcomes and event definitions |
-| [analytics-implement.zip](downloads/analytics-implement.zip?raw=1) | Instrument the application |
-| [analytics-verify.zip](downloads/analytics-verify.zip?raw=1) | Verify destination receipt |
-| [analytics-maintain.zip](downloads/analytics-maintain.zip?raw=1) | Keep measurement current |
+| [analytics-start.zip](downloads/analytics-start.zip?raw=true) | Choose the next step or resume |
+| [analytics-setup.zip](downloads/analytics-setup.zip?raw=true) | Tools and preferences |
+| [analytics-requirements.zip](downloads/analytics-requirements.zip?raw=true) | Outcomes and event definitions |
+| [analytics-implement.zip](downloads/analytics-implement.zip?raw=true) | Instrument the application |
+| [analytics-verify.zip](downloads/analytics-verify.zip?raw=true) | Verify destination receipt |
+| [analytics-maintain.zip](downloads/analytics-maintain.zip?raw=true) | Keep measurement current |
 
 These archives are generated from the skill source in this revision. Do not upload the whole repository as one skill. If downloading the repository instead, the same ZIPs are in `downloads/`.
 
