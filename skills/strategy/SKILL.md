@@ -1,72 +1,89 @@
 ---
 name: strategy
-description: Turn a business goal into a documented strategy and carry out the next relevant step through diagnosis, measurement, implementation, and outcome evaluation. Use to plan, prioritize, or resume goal-directed work without forcing a tracking setup or a full discovery interview.
+description: Start or resume strategy, analytics, and measurement work. Turn what the customer wants to get out of the work into documented outcomes, success measures, and a plan, then carry out the next useful step through diagnosis, requirements, implementation, verification, maintenance, or outcome evaluation. Use for a business goal such as improving retention, a general request such as help with analytics or what to do next, or resuming earlier work. Specific setup, requirements, implementation, verification, or maintenance requests can go straight to that work without a strategy interview.
 license: MIT
 ---
 
 # Strategy
 
-Own the customer's goal and conversation. Determine what work is needed, use relevant available skills, and keep a durable strategy that another assistant can resume. A specific implementation or verification request should proceed directly at the appropriate depth.
+Strategy owns what the customer wants to get out of this work: the business context, the glossary, goals and outcomes, success measures, the approach, and the work plan. It is also the single entry point. It finds where the work stands and continues with the next useful step in the same conversation, so the customer never needs to learn skill names.
 
-## Read shared context
+Setup owns how the skill set is used in this project: tools, platforms and applications, work locations, permission defaults, workflows in play, and tracking conventions. Strategy reads those records and does not ask those questions again.
 
-Follow project instructions or the customer's entry document to the resource index. Read relevant preferences, document/task destinations, glossary, existing strategy, definitions, decisions, and evidence. Resolve relative links from their containing document; use available connectors or browser access for remote records.
+A specific request, such as implementing an agreed event or verifying a destination, proceeds directly at the appropriate depth without a strategy interview.
 
-Use canonical business terms and distinguish facts, customer statements, hypotheses, and unknowns. Surface conflicting definitions before dependent work. Reuse existing records rather than create competing plans. Missing access is not proof that a record does not exist.
+## Find where the work stands
 
-If there is no index, discover existing records and establish only the work locations/context needed now. Use analytics-setup when installed and appropriate, or save a small index yourself: record role, actual canonical path/URL/ID, selected document/task homes, glossary, and open access gaps. Preserve existing project instructions and add a pointer when authorized. Do not require Setup or another skill to be installed.
+Follow the project instructions or the customer's entry document to the resource index. Read the setup record, relevant tools, business context, glossary, existing strategy, definitions, decisions, the progress section, and recent evidence. Resolve relative links from the document that contains them; use available connectors or browser access for remote records. Missing access is not proof that a record does not exist.
 
-## Understand the goal at the needed depth
+If there is no resource index, or the setup record lacks something the next step needs, use analytics-setup when it is installed for only the missing items, then continue here. When analytics-setup is not installed, ask where to save the strategy, record that location in a small resource index, and list the other setup items as open. Do not collect tool, platform, or convention details beyond what the next step strictly needs.
 
-Start with what the customer wants to improve and the decision the work should support. Reflect existing answers rather than repeat the opening. Inspect documents, code, available data, and tool capabilities for facts before asking questions.
+Check the relevant code or configuration before trusting a saved completion claim. Summarize what is known, what is unresolved, and the next useful action. If sources conflict, identify the conflict instead of silently overwriting a customer choice.
 
-Ask no more than three unresolved questions per round. Resolve the next material uncertainty: customer/entity in scope, desired behavior/outcome, current problem, constraints, success definition, timeframe, or evidence. Do not demand a complete business canvas or automatically recommend new tools/events.
+## Record the business context and glossary
 
-For “improve retention,” establish what retained entity and return behavior mean, the cohort/window, and whether usable evidence already exists. Do not invent a baseline, target, cause, or intervention. Technical setup completion and customer value may be different milestones.
+Keep one business context record for the project and reuse it across goals: what the product does, who it serves (end customers, users, accounts, and how they relate), main journeys, known business owners, and constraints. Read existing product documents and the code before asking, then show a short sourced summary for correction. Record only what the current goal needs; do not run a full company interview.
+
+Reuse the existing glossary, such as CONTEXT.md, when there is one. Record a term when its meaning is resolved. Distinguish observed facts, customer statements, hypotheses, and unknowns. Surface conflicting definitions before dependent work; do not infer business meaning from field names. The [strategy record](references/strategy-format.md) describes both records.
+
+## Understand the goal
+
+Start with what the customer wants to improve and the decision the work should support. Reflect answers already given instead of repeating the opening. Inspect documents, code, available data, and tool capabilities for facts before asking questions.
+
+Ask no more than three unresolved questions per round. Resolve the next material uncertainty: the entity or segment in scope, desired behavior or outcome, current problem, constraints, success definition, timeframe, or evidence. Do not demand a complete business canvas or automatically recommend new tools or events.
+
+For "improve retention", establish what the retained entity and return behavior mean, the cohort and window, and whether usable evidence already exists. Do not invent a baseline, target, cause, or intervention. Technical setup completion and customer value can be different milestones.
 
 ## Write the strategy as it develops
 
-Use [strategy record](references/strategy-format.md) to create or update the plan at the selected location. Capture goal/decision, current evidence, success measures, approach and rationale, bounded work, dependencies, and open choices. Link definitions and specialist findings rather than duplicate them.
+Use the [strategy record](references/strategy-format.md) to create or update the plan in the recorded document location. Capture the goal and decision, current evidence, success measures, approach and rationale, bounded work, dependencies, and open choices. Link definitions and specialist findings rather than duplicate them.
 
-Keep proposed and agreed choices distinct. The next milestone should produce useful evidence or a working outcome for this goal; it need not be a new event. Existing scope and authorization carry through internal skill transitions. An interview request does not authorize implementation, and a goal alone does not authorize production changes or customer messages.
+Keep proposed and agreed choices distinct. The next milestone should produce useful evidence or a working outcome for this goal; it need not be a new event.
 
-## Select and perform the next useful work
+## Choose and do the next step
 
-Use the host's actual skill list/discovery and read only the relevant available skill. Select by capability, inputs, tool access, and scope, not merely name. Explain the next action briefly; do not make the customer learn internal commands.
+Use the host's actual skill list or discovery and read only the workflow needed now. Select by capability, inputs, tool access, and scope, not merely by name. Route only to workflows that the setup record lists as in play; when none are recorded, every installed workflow is in play. If the next useful step falls outside them, say so and ask whether to widen the scope. Explain the next action briefly and continue in the same conversation instead of telling the customer to type another command.
 
-| Need now | Capability / existing workflow | Expected result |
+| Need now | Workflow if installed | Work to carry out, with or without the workflow |
 | --- | --- | --- |
-| Missing preferences, locations, tool facts, or changed accounts | analytics-setup | Shared context and precise access gaps |
-| Unclear metric/event meaning or missing evidence plan | analytics-requirements | Testable measurement definitions and source needs |
-| Uncertain journey or customer motivation | Available research/product capability, or bounded investigation | Observations and hypotheses kept distinct |
-| Explain a business pattern using available data | Available analysis capability | Reproducible findings, data fitness, competing explanations, limits |
-| Sources require joining, transformation, or modeling | Relevant data/engineering capability | Agreed flow and working authorized changes with validation |
-| An agreed behavior needs instrumentation | analytics-implement | Real trigger binding, selected routes, and verified cases |
-| A recurring decision needs a report | Relevant reporting capability | Working source-backed report and usable definitions |
-| Evidence supports a possible intervention | Relevant product, experiment, or coding capability | Chosen change specification and evaluation method; implementation within explicit scope |
-| Behavior, data correctness, or destination receipt is uncertain | analytics-verify for tracking; relevant checks for other artifacts | Attributable results and repair owners |
-| Changed feature/tool threatens existing measurement | analytics-maintain | Impact assessment, authorized repairs, fresh verification |
-| Intervention has sufficient observations | Relevant evaluation/analysis capability | Results, uncertainty, guardrails, next decision |
+| A tool, platform, work location, permission, or convention is missing or changed | analytics-setup | Ask only the unresolved setup items needed for this step and save them in the setup record |
+| Metric or event meaning is unclear, or there is no evidence plan | analytics-requirements | Start from the decision; refine success, exclusions, identity, and acceptance criteria three questions at a time; save Proposed versus Agreed requirements |
+| An agreed contract needs real code | analytics-implement | Trace the actual trigger owner and current SDK documentation; emit once through the existing routing owner; test the affected path |
+| Tracking exists but correctness or receipt is uncertain | analytics-verify | Exercise the real web or native journey; check each final destination through its API or interface; record Pass, Fail, Blocked, or Not run |
+| A feature or tool changed and measurement may have drifted | analytics-maintain | Compare the change with the plan, update affected records and code within permission, and verify again |
+| The journey or end-customer motivation is uncertain | Research or product capability, or a bounded investigation | Observations and hypotheses kept distinct |
+| A business pattern needs explaining from available data | Analysis capability | Reproducible findings, data fitness, competing explanations, and limits |
+| Sources need joining, transformation, or modeling | Data or engineering capability | Agreed flow and working, permitted changes with validation |
+| A recurring decision needs a report | Reporting capability | A working, source-backed report that uses shared definitions |
+| Evidence supports a possible intervention | Product, experiment, or coding capability | Change specification and evaluation method; implementation within permission |
+| An intervention has enough observations | Evaluation or analysis capability | Results, uncertainty, guardrails, and the next decision |
 
-The capability categories are not promises that extra specialist packages are installed. If none is available, perform a bounded task only when available tools and evidence can meet its requirements. Use actual schemas/installed versions/current official tool documentation as needed. Otherwise return the precise missing input or capability; do not fabricate an invocation or passing result.
+The capability rows are not promises that extra skills are installed. An unavailable workflow is not a dead end: perform the bounded step from this table when available tools and evidence can meet its requirements, using current official documentation for exact APIs. Otherwise return the precise missing input or capability. Do not fabricate an invocation, SDK, approval, code binding, or passing result, and do not install a skill without permission.
 
-For analysis, inspect definitions, coverage, grain, duplicates, joins, and time windows before drawing conclusions. Preserve reproducible queries/calculations and source references. Association can identify a hypothesis but does not establish causality. Use research when behavioral data cannot explain why.
+For new measurement work without a specified scope, propose one business question, one meaningful event, and the destinations needed to answer it. Agree that first milestone, including its positive and negative cases. Reuse existing tracking when suitable. A required destination cannot be silently dropped to claim success; defer optional tools only by agreement.
 
-For implementation, inspect the real owner and consumers, agree material semantics, and complete the authorized path with focused checks. For tracking, keep one binding per defined business trigger, reuse routing, keep private credentials out of clients, and verify each final destination. Do not create a service, connector framework, or SDK to bypass missing managed capabilities. Work requiring a new background service is outside this workflow.
+For analysis, inspect definitions, coverage, grain, duplicates, joins, and time windows before drawing conclusions. Preserve reproducible queries or calculations and source references. Association can suggest a hypothesis but does not establish causality. Use research when behavioral data cannot explain why.
 
-For interventions, specify the change, target population, hypothesis, success measure, guardrails, and feasible comparison/evaluation method before assessing results. Do not impose an experiment on every bug fix. Use an appropriate existing executor within scope; planning is not launching.
+For implementation, inspect the real owner and consumers, agree material semantics, and complete the permitted path with focused checks. For tracking, keep one binding per defined business trigger, reuse routing, keep private credentials out of clients, and verify each final destination. Do not create a service, connector framework, or SDK to bypass a missing capability.
+
+For interventions, specify the change, target population, hypothesis, success measure, guardrails, and a feasible evaluation method before assessing results. Do not impose an experiment on every bug fix. Planning is not launching.
+
+## Act within permission
+
+Follow the permission defaults in the setup record. The customer's current request can authorize its own work unless the setup record marks that action as not allowed. A planning or interview request ends with the plan; it does not authorize implementation. Production publishing, live account changes, messages to customers, and paid actions always need the customer's confirmation for that action. Moving between workflows keeps the same scope and permission.
 
 ## Inspect results and close the loop
 
-Pass a specialist the goal, bounded task, relevant canonical links, scope/authorization, and expected evidence. Inspect its returned result, source/revision, limits, and next action before using it. A completed document is not proof that the described system works.
+Pass a workflow the goal, bounded task, relevant canonical links, scope and permission, and expected evidence. Inspect its result, source revision, limits, and next action before using it. A completed document is not proof that the described system works.
 
-Separate implementation success, trustworthy measurement, and business impact. Evaluate against agreed definitions, exposure, observation window, baseline/comparison, and guardrails. Record uncertainty and plausible alternative explanations. If observations are insufficient, save the pending evidence need and resume when invoked later; do not claim impact or start a monitor.
+Separate implementation success, trustworthy measurement, and business impact. Evaluate against agreed definitions, exposure, observation window, baseline or comparison, and guardrails. Record uncertainty and plausible alternative explanations. If observations are insufficient, save the pending evidence need and resume when invoked later; do not claim impact or start a monitor.
 
-Update the strategy when evidence changes the approach. Create/update tracker tasks only when requested or covered by existing authorization; use the selected project and conventions, search for existing work first, link the strategy, and include observable acceptance criteria.
+Update the strategy when evidence changes the approach. Create or update tracker tasks only within permission; use the recorded project and conventions, search for existing work first, link the strategy, and include observable acceptance criteria.
 
 ## Save and hand back
 
-Save results to selected locations and retain real IDs/paths. Read back writes and resolve links when possible. Report unavailable readback or partial writes; inspect existing records before retrying creation. If the chosen home is inaccessible, agree a fallback or return an explicitly unpublished draft.
+Save results to the recorded locations and keep real IDs and paths. Read back writes and check links when possible. Report unavailable readback or partial writes, and look for an existing record before retrying a creation. If the recorded location is inaccessible, agree a fallback or return an explicitly unpublished draft.
 
-Maintain one authoritative progress section with scope, completed work/evidence, open decisions, blockers, and one next action. Use the existing README or linked external section, not parallel summaries. Return the strategy link and what changed. On resume, reconcile progress with current evidence/code and customer edits before continuing.
+Keep one progress section in the resource index or its linked progress record: updated time, goal and scope, completed work with links, open decisions, blockers and who can resolve them, and one next action. Link authoritative records instead of copying them. Never store secrets or infer completion from a stage label.
 
+On resume, reconcile progress with current records, code, and customer edits, then continue from the first unresolved dependency without repeating answered questions. Return the strategy link, what changed, and the next action. If nothing can be written, give an explicit handover in the response and name the missing access.
