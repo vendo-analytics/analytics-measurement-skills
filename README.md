@@ -2,7 +2,7 @@
 
 Give your agent one starting point for a business goal: understand the context, save a strategy, and choose the next useful work. Shared project records carry preferences, vocabulary, plans, and evidence between skills and assistants.
 
-Seven portable skills: Strategy, the compatible analytics-start entry, and five focused measurement workflows for Codex, Claude Code, and other agents that support `SKILL.md`. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
+Six portable skills for Codex, Claude Code, and other agents that support `SKILL.md`: Setup records how the skills work in your project, Strategy records what you want to get out of the work and is the single entry point, and four focused measurement workflows do the work. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
 
 ## Choose your assistant
 
@@ -58,15 +58,14 @@ Claude Code reads `.claude/skills/`. The installer may link those folders to sha
 
 Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
 
-1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all seven for the full set, or start with `strategy` alone. Existing `analytics-start` installations remain supported.
+1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all six for the full set, or start with `strategy` alone.
 2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
 3. Ask: “Use strategy to help me understand and improve this application.” Give the session access to the relevant project files.
 
 | Download | Purpose |
 | --- | --- |
-| [strategy.zip](downloads/strategy.zip) | Save a strategy and perform the next relevant work |
-| [analytics-start.zip](downloads/analytics-start.zip) | Compatible measurement entry point |
-| [analytics-setup.zip](downloads/analytics-setup.zip) | Shared profile, glossary links, document/task homes, and tools |
+| [strategy.zip](downloads/strategy.zip) | Entry point: business context, goals, outcomes, and the next relevant work |
+| [analytics-setup.zip](downloads/analytics-setup.zip) | Tools, platforms, work locations, permissions, workflows in play, and conventions |
 | [analytics-requirements.zip](downloads/analytics-requirements.zip) | Outcomes and event definitions |
 | [analytics-implement.zip](downloads/analytics-implement.zip) | Instrument the application |
 | [analytics-verify.zip](downloads/analytics-verify.zip) | Verify destination receipt |
@@ -123,7 +122,7 @@ Replace the example path with the actual location. For a chat-only assistant, su
 ### Check, update, or troubleshoot installation
 
 - Installation is project-local by default. Add `--global` for personal use across projects; this does not sync files to hosted or cloud sessions.
-- Use `--skill strategy` for the strategy entry point, or select any focused skill by name. `analytics-start` remains available for existing measurement workflows. The entry point uses installed workflows when available and can perform a bounded next step on its own.
+- Use `--skill strategy` for the entry point, or select any focused skill by name. Strategy uses installed workflows when available and can perform a bounded next step on its own.
 - If symlinks are unavailable, add `--copy` to the install command.
 - Run `npx skills list` to inspect installed skills. This checks installation, not whether the current assistant session loaded them.
 - To update, rerun your original install command and review any replacement prompt. Customer preferences live in your selected project records and should never be stored in the installed skill folder.
@@ -136,8 +135,8 @@ Current installation checks cover isolated Codex and Claude Code projects, inclu
 
 Ask Strategy what you want to understand or improve. It reads existing records, documents the goal and approach, and performs the next relevant work. It asks at most three unresolved questions at a time and does not require new tracking if existing data is sufficient.
 
-1. **Setup when needed:** establish project facts, preferred document/task locations, existing glossary, tools, and access. Other skills reuse these records.
-2. **Strategy:** save the goal, evidence, success measures, chosen or proposed approach, work plan, and next decision.
+1. **Setup when needed:** record how the skills work in this project: tools, platforms, document/task locations, what the assistant may do without asking, which workflows are in play, and tracking conventions. Other skills reuse these records.
+2. **Strategy:** record the business context and glossary, then save the goal, evidence, success measures, chosen or proposed approach, work plan, and next decision.
 3. **Do the needed work:** use the included measurement workflows or another suitable available capability. Strategy does not pretend uninstalled specialist skills are present.
 4. **Verify and learn:** check implementation separately from business impact. If evaluation needs future observations, save that requirement and resume when asked.
 
@@ -147,9 +146,8 @@ The available workflows:
 
 | Skill | What it does | Example request |
 | --- | --- | --- |
-| [strategy](skills/strategy/SKILL.md) | Documents the strategy and selects/continues relevant work | “Help us improve retention.” |
-| [analytics-start](skills/analytics-start/SKILL.md) | Reads project progress and continues the next relevant workflow | “Help me with analytics.” |
-| [analytics-setup](skills/analytics-setup/SKILL.md) | Records shared project context, glossary links, document/task destinations, tools, and preferences | “Add our new CRM to the existing analytics setup.” |
+| [strategy](skills/strategy/SKILL.md) | Entry point: records business context and goals, documents the strategy, and continues the next relevant work | “Help us improve retention.” or “Help me with analytics.” |
+| [analytics-setup](skills/analytics-setup/SKILL.md) | Records tools, platforms, document/task destinations, permission defaults, workflows in play, and tracking conventions | “Add our new CRM to the existing analytics setup.” |
 | [analytics-requirements](skills/analytics-requirements/SKILL.md) | Starts with outcomes, then refines requirements three questions at a time | “Help us understand why trial accounts fail to activate.” |
 | [analytics-implement](skills/analytics-implement/SKILL.md) | Reuses real application triggers and routes events through your chosen tools | “Implement the agreed activation tracking.” |
 | [analytics-verify](skills/analytics-verify/SKILL.md) | Exercises the real journey and checks receipt in each final destination | “Verify signup tracking and save the evidence.” |
@@ -169,32 +167,33 @@ Use the resource index saved in your project's agent instructions or supplied en
 
 ## Shared project records
 
-Setup discovers existing records and asks only about missing choices. Documents can live in your selected document system, tasks in your tracker, and code/evidence in appropriate repositories or folders. Record the exact document parent and task project, not just their tool names.
+Setup and Strategy split the shared records by concern. **Setup** owns how the skills work in this project: tools, platforms, work locations, permission defaults, workflows in play, and tracking conventions. **Strategy** owns what you want to get out of the work: business context, glossary, goals, and outcomes. Both discover existing records and ask only about missing choices. Documents can live in your selected document system, tasks in your tracker, and code/evidence in appropriate repositories or folders. Record the exact document parent and task project, not just their tool names.
 
 ```text
 Project instructions or entry document
   → Shared resource index
-      → Profile/preferences and work locations
-      → Tools, routes, and access references
-      → Existing glossary / CONTEXT.md
-      → Strategy and authoritative progress
+      → Setup: work locations, permissions, workflows in play, conventions
+      → Setup: tools, routes, and access references
+      → Strategy: business context and glossary / CONTEXT.md
+      → Strategy: goals, approach, and work plan
       → Requirements, metrics, and tracking dictionaries
       → Tasks, decisions, and verification evidence
 ```
 
 One business term has one authoritative meaning. Metrics link to that glossary while owning formulas; event/property definitions own payload and trigger semantics. Skills surface conflicts instead of inventing new definitions.
 
-| Record | Content | Local default, when selected |
-| --- | --- | --- |
-| Index | Canonical links and one progress summary | README.md |
-| Profile | Business/project context, conventions, document/task locations | preferences.md |
-| Tools | Accounts, capabilities, secure references, routes | tools.md |
-| Glossary | Resolved business terms and relationships | Existing CONTEXT.md or glossary.md |
-| Strategy | Goal, evidence, approach, work plan, task/result links | strategy.md |
-| Requirements/metrics | Definitions, evidence needs, acceptance criteria | requirements.md |
-| Tracking plan | Events, properties, bindings, mappings, cases | tracking-plan.md |
-| Decisions | Choices, reasons, superseded meanings | decisions.md |
-| Verification | Per-case results and sanitized evidence | `verification/<run>/report.md` |
+| Record | Owner | Content | Local default, when selected |
+| --- | --- | --- | --- |
+| Index | Setup; every skill updates progress | Canonical links and one progress summary | README.md |
+| Setup record | Setup | Platforms, document/task locations, permission defaults, workflows in play, tracking conventions | preferences.md |
+| Tools | Setup | Accounts, capabilities, secure references, routes | tools.md |
+| Business context | Strategy | Product, who it serves, journeys, business owners, constraints | business-context.md |
+| Glossary | Strategy | Resolved business terms and relationships | Existing CONTEXT.md or glossary.md |
+| Strategy | Strategy | Goal, evidence, approach, work plan, task/result links | strategy.md |
+| Requirements/metrics | Requirements | Definitions, evidence needs, acceptance criteria | requirements.md |
+| Tracking plan | Implementation | Events, properties, bindings, mappings, cases | tracking-plan.md |
+| Decisions | Any skill | Choices, reasons, superseded meanings | decisions.md |
+| Verification | Verification | Per-case results and sanitized evidence | `verification/<run>/report.md` |
 
 Create records when they have real content, reuse existing equivalents, and keep customer configuration outside installed skill folders. Each skill saves to the selected home and checks the write when possible. Missing access or readback stays explicit; an unpublished local draft is not presented as a remote document. Private tokens stay in your secret store or ignored configuration.
 

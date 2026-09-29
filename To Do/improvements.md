@@ -8,7 +8,7 @@ Keep the generalized tool workflow and no-background-service boundary intact. Th
 
 | Change | Implementation | Evaluation still needed |
 | --- | --- | --- |
-| One starting point | `analytics-start` reads current state and continues the relevant installed workflow, with a bounded fallback when used alone | New setup, an existing receipt problem, and starter-only use all reach a useful next step |
+| One starting point | `strategy` reads current state and continues the relevant installed workflow, with a bounded fallback when used alone (analytics-start was merged into it on 2026-09-29) | New setup, an existing receipt problem, and starter-only use all reach a useful next step |
 | Adaptive onboarding | Setup shows discovered facts, asks at most three unresolved questions, and records optional deferrals with agreement | No repeated questions; deferred tools do not block unrelated work; necessary decisions remain explicit |
 | First verified event | Agree one useful event and selected destinations when the customer has not specified scope | A blocked destination cannot disappear from the milestone; broad requests retain their full scope |
 | Resumable progress | Every workflow maintains the customer workspace README's Progress section with record links and one next action | A different assistant resumes without chat history, preserves customer edits, and reconciles stale evidence |
