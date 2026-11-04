@@ -26,7 +26,7 @@ These filenames are defaults, not instructions to duplicate remote records. Crea
 
 ## Setup record
 
-Record applications and environments, work locations, permission defaults, workflows in play, tracking conventions (naming, identity, consent and data boundaries, timezone, currency), and working constraints such as release rules. Business context and goals belong to strategy; link them from the index instead.
+Record applications and environments, work locations, permission defaults, workflows in play, tracking conventions (naming framework, event and property casing, source suffixes, identity, consent and data boundaries, timezone, currency), and working constraints such as release rules. Business context and goals belong to strategy; link them from the index instead.
 
 For work locations, save the document system and exact space, folder, or parent; the task tracker and team, project, or board; applicable statuses and templates; code, query, and evidence homes; existing record links; observed access; and open placement choices.
 
