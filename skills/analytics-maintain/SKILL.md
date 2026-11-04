@@ -18,7 +18,7 @@ Save outputs to the selected document/task/evidence homes. Preserve stable links
 
 Scope the review to the requested feature, diff, tool change, or audit boundary. Trace real event owners and callers. Compare required business outcomes with current triggers, payloads, identity/consent handling, route mappings, and verified destination evidence. Read current official documentation when a selected tool's behavior or SDK contract is uncertain.
 
-Look for missing or obsolete events, duplicate bindings, accidental auto-capture overlap, naming/type drift, stale code references, changed login/logout behavior, orphaned routes, and gaps in verification. Distinguish intentional product changes from regressions. An empty destination or an old report is not proof of a newly introduced defect.
+Look for missing or obsolete events, duplicate bindings, accidental auto-capture overlap, naming/type drift (names outside the recorded casing, the same business action under different unsuffixed names from two sources), stale code references, changed login/logout behavior, orphaned routes, and gaps in verification. Distinguish intentional product changes from regressions. An empty destination or an old report is not proof of a newly introduced defect.
 
 ## Make a proportionate change
 

@@ -22,7 +22,7 @@ Use [platform practices](references/platform-practices.md) for the affected code
 
 ## Resolve the event contract
 
-Use [tracking-plan format](references/tracking-plan-format.md) to record event meaning, exact firing and exclusion conditions, properties, identity, consent, route IDs, platform bindings, and test cases. Follow the customer's naming/casing choices. Resolve unknown business semantics with them instead of choosing new rules based on TypeScript or SDK signatures.
+Use [tracking-plan format](references/tracking-plan-format.md) to record event meaning, exact firing and exclusion conditions, properties, identity, consent, route IDs, platform bindings, and test cases. Follow the recorded naming framework, event and property casing, and source-suffix choices; when none is recorded, ask before naming a new event. Resolve unknown business semantics with them instead of choosing new rules based on TypeScript or SDK signatures.
 
 Bind each defined trigger once, then route from that canonical emission. Choose the authoritative emission owner for each business fact. A client submission attempt and a confirmed server outcome are different facts unless an explicit correlation/deduplication contract says otherwise. Do not promise global exactly-once delivery.
 

@@ -4,7 +4,7 @@ Maintain the tracking plan linked from the resource index at the selected docume
 
 ## Event contract
 
-Record name, description/meaning, requirement, precise firing condition, conditions where it must not fire, authoritative emission owner, required identities, consent/data restrictions, and route IDs from the tools document. Use `Draft`, `Agreed`, or `Deprecated` for the contract state. Preserve the evidence of agreement; do not invent it.
+Record name, description/meaning, requirement, precise firing condition, conditions where it must not fire, authoritative emission owner, required identities, consent/data restrictions, and route IDs from the tools document. Name events Object + past-tense verb in the recorded event casing, and properties in the recorded property casing. When two sources record the same business action, keep one event per source, add the agreed suffix (` [web]` or ` [app]`), and link both to the same requirement. Use `Draft`, `Agreed`, or `Deprecated` for the contract state. Preserve the evidence of agreement; do not invent it.
 
 Use a property table with name, type, required/optional, meaning/allowed values, and source when needed. State timestamp, currency/unit, enum, and missing-value semantics where relevant. Never send the literal strings `undefined` or `null` in place of absent values. Legitimate nulls must follow the actual contract.
 

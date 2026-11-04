@@ -27,11 +27,11 @@ Cover these areas as relevant:
 - **Work locations:** documents, tasks, code or queries, and evidence. Ask for the exact document space, folder, or parent and the task team, project, or board, not only tool names. Discover existing templates, task states, and conventions.
 - **Permission defaults:** what the assistant may do without asking in this project: save records, edit code, create or update tracker tasks, and change tool configuration in test environments. Record Allowed, Ask, or Not allowed for each. Production publishing, live account changes, messages to customers, and paid actions always need confirmation for each action; setup cannot pre-authorize them.
 - **Workflows in play:** which parts of the skill set this project uses, for example planning only, planning and implementation, or the full implement, verify, and maintain loop. Strategy routes only to workflows in play.
-- **Tracking conventions:** event naming and casing, identity, consent, sensitive-field exclusions, timezone, currency, and existing release rules.
+- **Tracking conventions:** event naming framework, event casing, property casing, source suffixes, identity, consent, sensitive-field exclusions, timezone, currency, and existing release rules.
 
 For local records, propose an existing suitable folder or analytics/ and confirm it. For external records, use the selected native pages and tracker. Keep a discoverable entry pointer, not duplicate local copies of remotely owned documents. If no preference exists, propose a simple arrangement suited to available tools and record the customer's choice. Where the customer has no view on a permission or workflow, record the defaults from the workspace format and say so.
 
-For tracking, identify the routing owner: browser or server tag manager, CDP, direct SDKs, or combinations. Reuse one canonical emission path and inspect legitimate client-capability exceptions. Offer Object–Action names with independent event and property casing choices; preserve existing contracts and provider-reserved names.
+For tracking, identify the routing owner: browser or server tag manager, CDP, direct SDKs, or combinations. Reuse one canonical emission path and inspect legitimate client-capability exceptions. Offer Object + past-tense verb event names (for example `Subscription Started`). Ask for event casing and property casing separately: Title Case, snake_case, or camelCase. When two sources record the same business action, keep both and ask whether to suffix them ` [web]` (browser or client) and ` [app]` (server or backend). Reuse a naming preference the workspace already stores instead of asking again. Preserve existing contracts and provider-reserved names.
 
 ## Verify relevant access
 
