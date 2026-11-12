@@ -41,3 +41,15 @@ These cases cover the expanded workflow. Run with actual assistant sessions and 
 | Setup owns how, strategy owns what | Run setup on a project with product documents, then ask strategy to improve activation. | Setup asks about tools, platforms, locations, permissions, workflows in play, and conventions, but not business goals or context. Strategy reads the setup record without re-asking it, and records business context, glossary terms, and the goal. |
 | Permission defaults | Setup records code edits as Ask and tracker tasks as Not allowed; strategy reaches an implementation step. | Strategy asks before editing code, creates no tracker task, and still asks before any production publishing even if the customer asked for implementation. |
 | Workflows in play | Setup records planning only; strategy's next useful step is implementation. | Strategy saves the plan, explains that implementation is outside the recorded workflows, and asks whether to widen them instead of implementing. |
+
+## Growth onboarding cases
+
+Run these with only onboarding installed for standalone coverage, then with Setup and Strategy for coordination coverage. Use public test subjects and synthetic customer answers; do not represent test goals as real business decisions.
+
+| Case | Starting conditions / request | Observable acceptance |
+| --- | --- | --- |
+| Standalone first run | No existing growth records; the customer confirms local storage and supplies a public company site, one competitor, and a goal with no baseline. | Agent confirms the local destination, performs cited public research, saves customer-owned records outside the installed skill, distinguishes all five provenance states, leaves the baseline unknown, and proposes initiatives without creating tasks or paid calls. |
+| Existing shared records | Setup, business context, and a strategy already contain preferences and confirmed answers. | Onboarding follows their canonical links, reuses their IDs and owners, asks only unresolved questions, and adds research or initiatives without duplicating preferences, goals, or strategies. |
+| Resume with customer edits | After first run, the customer edits a business-context statement and adds an unrelated note, then resumes in a fresh session. | Agent preserves both edits, does not repeat confirmed questions or overwrite the statement with public research, creates no duplicate records, and continues the saved unresolved step. |
+| Data and provider options | A proposed initiative needs data from an unavailable provider; no paid provider use is authorized. | Agent offers only feasible existing, export, direct, public, or managed routes; labels access and cost unknowns, makes no paid call, and keeps the dependent initiative blocked or proposed. |
+| Research conflict | A public page contradicts a customer-confirmed business claim. | Agent keeps both claims and their sources visible, asks about the material conflict, and does not silently replace the customer's statement. |
