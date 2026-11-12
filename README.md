@@ -2,7 +2,7 @@
 
 Give your agent one starting point for a business goal: understand the context, save a strategy, and choose the next useful work. Shared project records carry preferences, vocabulary, plans, and evidence between skills and assistants.
 
-Six portable skills for Codex, Claude Code, and other agents that support `SKILL.md`: Setup records how the skills work in your project, Strategy records what you want to get out of the work and is the single entry point, and four focused measurement workflows do the work. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
+Seven portable skills for Codex, Claude Code, and other agents that support `SKILL.md`: Setup records how the skills work in your project, Strategy records what you want to get out of the work and is the single entry point, Session wrap-up reconciles cross-session records and handoff, and four focused measurement workflows do the work. Bring your own analytics, advertising, CRM, experimentation, CDP, and tag management tools. No Vendo account required.
 
 ## Choose your assistant
 
@@ -58,13 +58,14 @@ Claude Code reads `.claude/skills/`. The installer may link those folders to sha
 
 Local Claude Code installation does not install skills into your Claude account. For the app's custom-skill upload:
 
-1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all six for the full set, or start with `strategy` alone.
+1. Open a ZIP link below, then click GitHub's **Download raw file** button (download icon). Each ZIP contains one complete skill, its references, and the MIT license. Install all seven for the full set, or start with `strategy` alone.
 2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**, upload each ZIP, and enable it. Follow [Claude's current setup requirements](https://support.claude.com/en/articles/12512180-use-skills-in-claude), including code execution/file creation where required.
 3. Ask: “Use strategy to help me understand and improve this application.” Give the session access to the relevant project files.
 
 | Download | Purpose |
 | --- | --- |
 | [strategy.zip](downloads/strategy.zip) | Entry point: business context, goals, outcomes, and the next relevant work |
+| [session-wrap-up.zip](downloads/session-wrap-up.zip) | Reconcile session changes, evidence, decisions, progress, and the next-session handoff |
 | [analytics-setup.zip](downloads/analytics-setup.zip) | Tools, platforms, work locations, permissions, workflows in play, and conventions |
 | [analytics-requirements.zip](downloads/analytics-requirements.zip) | Outcomes and event definitions |
 | [analytics-implement.zip](downloads/analytics-implement.zip) | Instrument the application |
@@ -140,6 +141,8 @@ Ask Strategy what you want to understand or improve. It reads existing records, 
 3. **Do the needed work:** use the included measurement workflows or another suitable available capability. Strategy does not pretend uninstalled specialist skills are present.
 4. **Verify and learn:** check implementation separately from business impact. If evaluation needs future observations, save that requirement and resume when asked.
 
+At the end of a work session or before switching assistants, use Session wrap-up. It reconciles confirmed changes, decisions, evidence, unresolved questions, and progress into one handoff. It links each skill's authoritative outputs rather than duplicating their work or verification.
+
 For instrumentation without a defined scope, the measurement workflows can agree one business question and one useful event, then verify its selected routes and cases. A specific repair or verification request proceeds directly without a strategy workshop. Broader requests retain their scope.
 
 The available workflows:
@@ -147,6 +150,7 @@ The available workflows:
 | Skill | What it does | Example request |
 | --- | --- | --- |
 | [strategy](skills/strategy/SKILL.md) | Entry point: records business context and goals, documents the strategy, and continues the next relevant work | “Help us improve retention.” or “Help me with analytics.” |
+| [session-wrap-up](skills/session-wrap-up/SKILL.md) | Reconciles session changes and evidence, preserves revisions and customer edits, and saves one resumable handoff | “Wrap up this session and update our shared records.” |
 | [analytics-setup](skills/analytics-setup/SKILL.md) | Records tools, platforms, document/task destinations, permission defaults, workflows in play, and tracking conventions | “Add our new CRM to the existing analytics setup.” |
 | [analytics-requirements](skills/analytics-requirements/SKILL.md) | Starts with outcomes, then refines requirements three questions at a time | “Help us understand why trial accounts fail to activate.” |
 | [analytics-implement](skills/analytics-implement/SKILL.md) | Reuses real application triggers and routes events through your chosen tools | “Implement the agreed activation tracking.” |
@@ -193,11 +197,12 @@ One business term has one authoritative meaning. Metrics link to that glossary w
 | Requirements/metrics | Requirements | Definitions, evidence needs, acceptance criteria | requirements.md |
 | Tracking plan | Implementation | Events, properties, bindings, mappings, cases | tracking-plan.md |
 | Decisions | Any skill | Choices, reasons, superseded meanings | decisions.md |
+| Session handoff | Session wrap-up | Confirmed session changes, artifact/evidence links, unresolved work, and one next action | `sessions/<session-id>.md` or existing progress |
 | Verification | Verification | Per-case results and sanitized evidence | `verification/<run>/report.md` |
 
 Create records when they have real content, reuse existing equivalents, and keep customer configuration outside installed skill folders. Each skill saves to the selected home and checks the write when possible. Missing access or readback stays explicit; an unpublished local draft is not presented as a remote document. Private tokens stay in your secret store or ignored configuration.
 
-See the [Setup output format](skills/analytics-setup/references/workspace-format.md) and [Strategy output format](skills/strategy/references/strategy-format.md). Both are instructions for producing your records, not prefilled customer files.
+See the [Setup output format](skills/analytics-setup/references/workspace-format.md), [Strategy output format](skills/strategy/references/strategy-format.md), and [Session handoff format](skills/session-wrap-up/references/session-record-format.md). They are instructions for producing your records, not prefilled customer files.
 
 ## How implementation works
 
